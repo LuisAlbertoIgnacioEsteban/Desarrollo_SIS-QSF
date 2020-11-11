@@ -133,26 +133,30 @@ namespace Backend.Daos
 
         }
 
-         public bool update(Beca beca)
+        public bool update(QSF qsf)
         {
-            MySqlConnection con = new Conexion().getConnection();
-            con.Open();
+            MySqlConnection con = new Conexión().getConexion();
+            
             try
             {
+                con.Open();
 
-                String sql = "update beca" +
-                            " set TITULO = @titulo, DESCRIPCION = @DESCRIPCION" +
-                            ",FECHA_INI = @fechaInicio, FECHA_FIN = @fechaTermino, TIPO = @TIPO" +
-                            ",ALCANCE=@ALCANCE where ID_BECA = @id;";
+                String sql = "update qsf set Prioridad = @Prioridad, Estatus = @Estatus, " +
+                "Fecha = @Fecha' ,Tipo_Servicio = @Tipo_Servicio, " +
+                "Departamento = @Departamento,Descripcion = @Descripcion," +
+                "Observaciones = @Observaciones, UsuarioSolicitante = @UsuarioSolicitante where ClaveQSF = @ClaveQSF;";
+
 
                 MySqlCommand comando = new MySqlCommand(sql, con);
-                comando.Parameters.AddWithValue("titulo", beca.titulo);
-                comando.Parameters.AddWithValue("DESCRIPCION", beca.descripcion);
-                comando.Parameters.AddWithValue("fechaInicio", beca.fechaIni);
-                comando.Parameters.AddWithValue("fechaTermino", beca.fechaFin);
-                comando.Parameters.AddWithValue("TIPO", beca.tipo);
-                comando.Parameters.AddWithValue("ALCANCE", beca.alcance);
-                comando.Parameters.AddWithValue("id", beca.idBeca);
+                comando.Parameters.AddWithValue("Prioridad",qsf.Prioridad);
+                comando.Parameters.AddWithValue("Estatus",qsf.Estatus);
+                comando.Parameters.AddWithValue("Fecha",qsf.Fecha);
+                comando.Parameters.AddWithValue("Tipo_Servicio", qsf.TipoServicio);
+                comando.Parameters.AddWithValue("Departamento", qsf.Departamento);
+                comando.Parameters.AddWithValue("Descripcion", qsf.Descripcion);
+                comando.Parameters.AddWithValue("Observaciones", qsf.Observaciones);
+                comando.Parameters.AddWithValue("UsuarioSolicitante", qsf.UsuarioSolicitante);
+                comando.Parameters.AddWithValue("ClaveQSF", qsf.ClaveQSF);
 
                 comando.ExecuteNonQuery();
                 return true;
@@ -166,7 +170,28 @@ namespace Backend.Daos
         }
 
 
+        public bool delete(String clave)
+        {
+            MySqlConnection con = new Conexión().getConexion();
+           
+            try
+            {
+                con.Open();
+                String sql = "delete from qsf where ClaveQSF = @ClaveQSF;";
 
+                MySqlCommand comando = new MySqlCommand(sql, con);
+                comando.Parameters.AddWithValue("ClaveQSF", clave);
+                comando.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (Exception e) { return false; }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
 
     }
 }
