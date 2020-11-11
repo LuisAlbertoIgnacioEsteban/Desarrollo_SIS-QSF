@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;//referencia para usar los metodos mysql
 using Backend.Clases;
+using System.Data;
 
 namespace Backend.Daos
 {
@@ -35,5 +36,56 @@ namespace Backend.Daos
                 throw;//arroja un error si no se puede hacer la consulta sql
             }
         }// metodo usado para insertar los datos de la qsf en mysql, recibe los atributos de una qsf como parametros
+
+
+        public List<QSF> getAll()
+        {
+            List<QSF> qsf = new List<QSF>();
+            MySqlConnection con = new Conexión().getConexion();
+                try
+                {
+               
+                con.Open();
+                String strSql = "select Prioridad, Estatus, ClaveQSF, Fecha, Tipo_Servicio, Departamento,Descripcion, Observaciones,UsuarioSolicitante from qsf;";
+
+                MySqlCommand comando = new MySqlCommand(strSql, con);
+
+                MySqlDataAdapter adaptador = new MySqlDataAdapter(comando);
+                DataTable tabla = new DataTable();
+                adaptador.Fill(tabla);
+
+                foreach (DataRow fila in tabla.Rows)
+                {
+                    QSF queja = new QSF();
+
+                    queja.ClaveQSF= int.Parse(fila["ID_BECA"].ToString());
+                    queja.Prioridad = fila["Prioridad "].ToString();
+                    queja.Estatus = fila["Estatus"].ToString();
+                    queja.Departamento = fila["Departamento "].ToString();
+                    queja.TipoServicio = fila["TipoServicio "].ToString();
+                    queja.Descripcion = fila["Descripcion"].ToString();
+                    queja.Observaciones = fila["Observaciones"].ToString();
+                    queja.Fecha = fila["Fecha"].ToString();
+                    queja.UsuarioSolicitante = int.Parse(fila["UsuarioSolicitante"].ToString());
+                   
+                    qsf.Add(queja);
+
+                }
+
+                return qsf;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+
     }
 }

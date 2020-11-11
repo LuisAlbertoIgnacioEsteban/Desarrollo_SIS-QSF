@@ -68,11 +68,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin-Solicitudes\visualizarQSF.aspx" />
+    <Content Include="Admin-Solicitudes\visualizarQSF.js" />
+    <Content Include="jss\bootstrap.bundle.js" />
+    <Content Include="jss\bootstrap.bundle.min.js" />
+    <Content Include="jss\bootstrap.js" />
+    <Content Include="jss\bootstrap.min.js" />
+    <Content Include="jss\bootstrapValidator.js" />
+    <Content Include="jss\datatables.js" />
+    <Content Include="jss\datatables.min.js" />
+    <Content Include="jss\jquery-3.3.1.slim.min.js" />
+    <Content Include="jss\jquery-3.4.1.js" />
     <Content Include="LlenadoSolicitud.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Web.config" />
+    <Content Include="ws\WSQSF.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin-Solicitudes\visualizarQSF.aspx.cs">
+      <DependentUpon>visualizarQSF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin-Solicitudes\visualizarQSF.aspx.designer.cs">
+      <DependentUpon>visualizarQSF.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LlenadoSolicitud.aspx.cs">
       <DependentUpon>LlenadoSolicitud.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -88,8 +107,16 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ws\WSQSF.asmx.cs">
+      <DependentUpon>WSQSF.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="jss\bootstrap.bundle.js.map" />
+    <Content Include="jss\bootstrap.bundle.min.js.map" />
+    <Content Include="jss\bootstrap.js.map" />
+    <Content Include="jss\bootstrap.min.js.map" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -104,6 +131,7 @@
       <Name>BackEnd</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

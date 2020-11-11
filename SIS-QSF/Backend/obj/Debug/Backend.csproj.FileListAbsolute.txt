@@ -12,3 +12,11 @@ F:\Desarrollo_SIS-QSF-main\SIS-QSF\Backend\obj\Debug\Backend.dll
 F:\Desarrollo_SIS-QSF-main\SIS-QSF\Backend\obj\Debug\Backend.pdb
 F:\Desarrollo_SIS-QSF-main\SIS-QSF\Backend\bin\Debug\MySql.Data.dll
 F:\Desarrollo_SIS-QSF-main\SIS-QSF\Backend\obj\Debug\BackEnd.csproj.CopyComplete
+D:\hena2\Documents\Desarrollo_SIS-QSF\SIS-QSF\Backend\bin\Debug\Backend.dll
+D:\hena2\Documents\Desarrollo_SIS-QSF\SIS-QSF\Backend\bin\Debug\Backend.pdb
+D:\hena2\Documents\Desarrollo_SIS-QSF\SIS-QSF\Backend\bin\Debug\MySql.Data.dll
+D:\hena2\Documents\Desarrollo_SIS-QSF\SIS-QSF\Backend\obj\Debug\BackEnd.csprojAssemblyReference.cache
+D:\hena2\Documents\Desarrollo_SIS-QSF\SIS-QSF\Backend\obj\Debug\BackEnd.csproj.CoreCompileInputs.cache
+D:\hena2\Documents\Desarrollo_SIS-QSF\SIS-QSF\Backend\obj\Debug\BackEnd.csproj.CopyComplete
+D:\hena2\Documents\Desarrollo_SIS-QSF\SIS-QSF\Backend\obj\Debug\Backend.dll
+D:\hena2\Documents\Desarrollo_SIS-QSF\SIS-QSF\Backend\obj\Debug\Backend.pdb
