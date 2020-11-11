@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
 
-    let tabla = $('#grvBecas');
+    let tabla = $('#grvQSF');
     //Obtengo la fila de los encabezados en el gridview colocó en el tbody (la primera)
     let fila = $(tabla).find("tbody tr:first").clone();
     //La elimino del tbody
@@ -10,9 +10,9 @@
     //Añado el thead a la tabla antes del tbody
     $(tabla).children('tbody').before(encabezado);
     //Activamos el plugin
-    $('#grvBecas').DataTable();
+    $('#grvQSF').DataTable();
 
-    ///////////////
+    
     FrontEnd.ws.WSQSF.getAll(function (result) {
         if (result) {
             let datos = JSON.parse(result);
@@ -20,7 +20,7 @@
         } else {
 
             //Creacion del Alert que mostrara que el usuario no existe
-            tpl = '<div class="alert alert-danger hide" role="alert">' + "No se logró obtener los datos de las becas" +
+            tpl = '<div class="alert alert-danger hide" role="alert">' + "No se lograron obtener los datos" +
                 ' <button type="button" class="close" data-dismiss="alert" aria-label="Close">  <span aria-hidden="true">&times;</span>  </button> </div>';
             //El mensaje de error se mostrara en un div con el id " alert "
             $('#alert').html(tpl);
@@ -28,7 +28,6 @@
     },
         function (error) {
 
-            //Creacion del Alert que mostrara que el usuario no existe
             tpl = '<div class="alert alert-danger hide" role="alert">' + "Error de tipo" + error +
                 ' <button type="button" class="close" data-dismiss="alert" aria-label="Close">  <span aria-hidden="true">&times;</span>  </button> </div>';
             //El mensaje de error se mostrara en un div con el id " alert "
@@ -60,10 +59,10 @@ function cargarDatos(datos) {
                 title: "", data: null, render:
                     function (data, type, row) {
                         return '<div class="row justify-content-center">' +
-                            '<button type="button" onclick="editar(' + data.idBeca +
+                            '<button type="button" onclick="editar(' + data.ClaveQSF +
                             ')" class="btn btn-primary">Editar</button>' +
 
-                            '<button type="button" onclick="eliminar(' + data.idBeca +
+                            '<button type="button" onclick="eliminar(' + data.ClaveQSF +
                             ')" class="btn btn-danger">Eliminar</button>' +
                             '</div>';
                     }

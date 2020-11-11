@@ -16,7 +16,7 @@
             </Services>
         </asp:ScriptManager>
         <button type="button" class="btn btn-primary">Primary</button>
-
+        <div  id="alert"></div>
        
     </form>
     <table id="tableQSF" class="table table-bordered table-striped"></table>
