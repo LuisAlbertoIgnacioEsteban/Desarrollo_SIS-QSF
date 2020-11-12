@@ -45,7 +45,7 @@ namespace Backend.Daos
                 try
                 {
                
-                con.Open();
+                
                 String strSql = "select Prioridad, Estatus, ClaveQSF, Fecha, Tipo_Servicio, Departamento,Descripcion, Observaciones,UsuarioSolicitante from qsf;";
 
                 MySqlCommand comando = new MySqlCommand(strSql, con);
@@ -58,16 +58,16 @@ namespace Backend.Daos
                 {
                     QSF queja = new QSF();
 
-                    queja.ClaveQSF= int.Parse(fila["ID_BECA"].ToString());
-                    queja.Prioridad = fila["Prioridad "].ToString();
+                    queja.ClaveQSF= int.Parse(fila["ClaveQSF"].ToString());
+                    queja.Prioridad = fila["Prioridad"].ToString();
                     queja.Estatus = fila["Estatus"].ToString();
-                    queja.Departamento = fila["Departamento "].ToString();
-                    queja.TipoServicio = fila["TipoServicio "].ToString();
+                    queja.Departamento = fila["Departamento"].ToString();
+                    queja.TipoServicio = fila["Tipo_Servicio"].ToString();
                     queja.Descripcion = fila["Descripcion"].ToString();
                     queja.Observaciones = fila["Observaciones"].ToString();
                     queja.Fecha = fila["Fecha"].ToString();
                     queja.UsuarioSolicitante = int.Parse(fila["UsuarioSolicitante"].ToString());
-                   
+                    Console.WriteLine(queja.ClaveQSF+" ");
                     qsf.Add(queja);
 
                 }
@@ -90,7 +90,7 @@ namespace Backend.Daos
         public QSF getOnebyID(String id)
         {
             MySqlConnection con = new Conexión().getConexion();
-            con.Open();
+            
             try
             {
                 QSF qsf = new QSF();
@@ -108,11 +108,11 @@ namespace Backend.Daos
 
                 QSF queja = new QSF();
 
-                queja.ClaveQSF = int.Parse(row["ID_BECA"].ToString());
-                queja.Prioridad = row["Prioridad "].ToString();
+                queja.ClaveQSF = int.Parse(row["ClaveQSF"].ToString());
+                queja.Prioridad = row["Prioridad"].ToString();
                 queja.Estatus = row["Estatus"].ToString();
-                queja.Departamento = row["Departamento "].ToString();
-                queja.TipoServicio = row["TipoServicio "].ToString();
+                queja.Departamento = row["Departamento"].ToString();
+                queja.TipoServicio = row["TipoServicio"].ToString();
                 queja.Descripcion = row["Descripcion"].ToString();
                 queja.Observaciones = row["Observaciones"].ToString();
                 queja.Fecha = row["Fecha"].ToString();
