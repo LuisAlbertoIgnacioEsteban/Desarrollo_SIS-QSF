@@ -39,6 +39,7 @@ function llenarTabla(datos) {
             { title: "Prioridad", data: "Prioridad" },
             { title: "Estatus", data: "Estatus" },
             { title: "Departamento", data: "Departamento" },
+            { title: "Descripcion", data: "Descripcion" },
             { title: "TipoServicio", data: "TipoServicio" },
             { title: "Observaciones", data: "Observaciones" },
             { title: "Fecha", data: "Fecha" },
