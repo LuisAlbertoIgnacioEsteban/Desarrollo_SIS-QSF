@@ -26,7 +26,7 @@ namespace FrontEnd
 
             if (administrador.verificarAdmin(administrador)==true)
             {
-                Response.Redirect("www.itsur.com");
+                Response.Redirect("~/Admin-Solicitudes/visualizarQSF.aspx");
             }
             else
             {
