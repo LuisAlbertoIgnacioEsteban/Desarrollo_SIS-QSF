@@ -20,3 +20,11 @@ D:\hena2\Documents\Desarrollo_SIS-QSF\SIS-QSF\Backend\obj\Debug\BackEnd.csproj.C
 D:\hena2\Documents\Desarrollo_SIS-QSF\SIS-QSF\Backend\obj\Debug\BackEnd.csproj.CopyComplete
 D:\hena2\Documents\Desarrollo_SIS-QSF\SIS-QSF\Backend\obj\Debug\Backend.dll
 D:\hena2\Documents\Desarrollo_SIS-QSF\SIS-QSF\Backend\obj\Debug\Backend.pdb
+C:\Users\joseluis\Documents\GitHub\Desarrollo_SIS-QSF\SIS-QSF\Backend\bin\Debug\Backend.dll
+C:\Users\joseluis\Documents\GitHub\Desarrollo_SIS-QSF\SIS-QSF\Backend\bin\Debug\Backend.pdb
+C:\Users\joseluis\Documents\GitHub\Desarrollo_SIS-QSF\SIS-QSF\Backend\bin\Debug\MySql.Data.dll
+C:\Users\joseluis\Documents\GitHub\Desarrollo_SIS-QSF\SIS-QSF\Backend\obj\Debug\BackEnd.csprojAssemblyReference.cache
+C:\Users\joseluis\Documents\GitHub\Desarrollo_SIS-QSF\SIS-QSF\Backend\obj\Debug\BackEnd.csproj.CoreCompileInputs.cache
+C:\Users\joseluis\Documents\GitHub\Desarrollo_SIS-QSF\SIS-QSF\Backend\obj\Debug\BackEnd.csproj.CopyComplete
+C:\Users\joseluis\Documents\GitHub\Desarrollo_SIS-QSF\SIS-QSF\Backend\obj\Debug\Backend.dll
+C:\Users\joseluis\Documents\GitHub\Desarrollo_SIS-QSF\SIS-QSF\Backend\obj\Debug\Backend.pdb

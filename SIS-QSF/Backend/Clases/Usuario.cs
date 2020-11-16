@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Backend.Daos;
+using System.Data;//referencia para usar los metodos data
 
 namespace Backend.Clases
 {
@@ -31,5 +32,9 @@ namespace Backend.Clases
             return du.ObtenerClaveUsuario(nombre);
         }
 
+        public DataTable ObtenerSolicitudes(string nombre)
+        {
+            return du.ObtenerSolicitudesUsuario(nombre);
+        }
     }
 }
