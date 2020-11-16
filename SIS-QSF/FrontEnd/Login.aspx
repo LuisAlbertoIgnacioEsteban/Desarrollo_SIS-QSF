@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="css/estilo.css"/>
 </head>
 <body>
-    <form id="form1" runat="server">
    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <h1><img src="Imagenes/sisqsf.png"/></h1>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          <h4 style="color:white;">Sistema de Quejas, Sugerencias y/o Felicitaciones</h4>
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -30,11 +30,12 @@
                 </li>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <li class="nav-item">
-                    <a href="Admin-Solicitudes/visualizarQSF.aspx" class="nav-link"><h6 style="color:white;">Administración</h6></a>
+                    <a href="Login.aspx" class="nav-link"><h6 style="color:white;">Administración</h6></a>
                 </li>
             </ul>
         </div>
     </nav>
+    <form id="form1" runat="server">
     <br />
     <br />
     <br />

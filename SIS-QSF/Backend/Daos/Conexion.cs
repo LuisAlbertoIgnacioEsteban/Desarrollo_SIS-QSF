@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;//referencia para usar los metodos mysql
 
 namespace Backend.Daos
 {
-    public class Conexión
+    public class Conexion
     {
         public static MySqlConnection ObtenerConexion()
         {

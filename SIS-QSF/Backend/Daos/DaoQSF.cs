@@ -17,7 +17,7 @@ namespace Backend.Daos
             {
                 string strSQL = "insert into qsf(ClaveQSF,Fecha,Prioridad,Estatus,Tipo_Servicio,Departamento,Descripcion,Observaciones,UsuarioSolicitante)" +
                                 "values (null,@Fecha,@Prioridad,@Estatus,@TipoServicio,@Departamento,@Descripcion,@Observaciones,@UsuarioSolicitante)";//consulta sql que va a realizarse
-                MySqlCommand comando = new MySqlCommand(strSQL, Conexión.ObtenerConexion());//asigna la consulta y la conexion a la variable comando
+                MySqlCommand comando = new MySqlCommand(strSQL, Conexion.ObtenerConexion());//asigna la consulta y la conexion a la variable comando
                 comando.Parameters.AddWithValue("@Fecha", qsf.Fecha);
                 comando.Parameters.AddWithValue("@Prioridad", qsf.Prioridad);
                 comando.Parameters.AddWithValue("@Estatus", qsf.Estatus);
@@ -28,8 +28,8 @@ namespace Backend.Daos
                 comando.Parameters.AddWithValue("@UsuarioSolicitante", qsf.UsuarioSolicitante);//parametrisa las variables de comando, asignandoles los valores que la pagina web envio
                 comando.ExecuteNonQuery();//ejecuta el comando sql
                 comando.Dispose();//libera el comando utilizado
-                Conexión.ObtenerConexion().Close();//cierra conexion
-                Conexión.ObtenerConexion().Dispose();//libera la variable de conexion
+                Conexion.ObtenerConexion().Close();//cierra conexion
+                Conexion.ObtenerConexion().Dispose();//libera la variable de conexion
             }
             catch (Exception)
             {
@@ -41,7 +41,7 @@ namespace Backend.Daos
         public List<QSF> getAll()
         {
             List<QSF> qsf = new List<QSF>();
-            MySqlConnection con = new Conexión().getConexion();
+            MySqlConnection con = new Conexion().getConexion();
                 try
                 {
                
@@ -89,7 +89,7 @@ namespace Backend.Daos
 
         public QSF getOnebyID(String id)
         {
-            MySqlConnection con = new Conexión().getConexion();
+            MySqlConnection con = new Conexion().getConexion();
             
             try
             {
@@ -135,7 +135,7 @@ namespace Backend.Daos
 
         public bool update(QSF qsf)
         {
-            MySqlConnection con = new Conexión().getConexion();
+            MySqlConnection con = new Conexion().getConexion();
             
             try
             {
@@ -172,7 +172,7 @@ namespace Backend.Daos
 
         public bool delete(String clave)
         {
-            MySqlConnection con = new Conexión().getConexion();
+            MySqlConnection con = new Conexion().getConexion();
            
             try
             {
