@@ -26,6 +26,33 @@
        <table id="tableQSF" class="table table-bordered table-striped"></table>
     </form>
     
+    <%--  Inicia modal --%>
+    <div class="modal" id="Ventanamodal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+
+          
+
+      </div>
+    </div>
+  </div>
+</div>
+
+    <%--  Termina modal --%> 
+    
 </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
    

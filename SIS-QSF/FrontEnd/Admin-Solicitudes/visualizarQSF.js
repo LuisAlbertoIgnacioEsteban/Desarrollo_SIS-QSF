@@ -47,8 +47,8 @@ function llenarTabla(datos) {
 
             {
                 title: "", data: null, render: function (data, type, row) {
-                    return '<button id="btnSeleccion" type="button" aria-pressed="false" onclick="" "' +
-                        ' data-toggle="button" class="btn btn-outline-success"><i class="fas fa-edit"></i></button>'
+                    return '<button id="btnSeleccion" type="button" aria-pressed="false"' 
+                    +   'data - toggle="modal" class="btn btn-outline-success" data - target="#Ventanamodal" > <i class="fas fa-edit"></i></button > '
                         + '<button id="btnSeleccion" type="button" aria-pressed="false" onclick="" "' +
                         ' data-toggle="button" class="btn btn-outline-success"><i class="fas fa-trash-alt"></i></i></button>' +
                          '<button id="btnSeleccion" type="button" aria-pressed="false" onclick="" "' +
@@ -70,7 +70,7 @@ function llenarTabla(datos) {
             $(this).html('<input type="text" class="filtro form-control input-sm" style="width:90%;" placeholder="Buscar ' + title + '" />');
         });
         //Quitar filtro en la ultima columna (la de operaciones)
-        $(fila).children("th:eq(8)").html('');
+        $(fila).children("th:eq(9)").html('');
         let tabla = this;
         //Activa el filtrado
         tabla.api().columns().eq(0).each(function (colIdx) {
@@ -117,5 +117,6 @@ function llenarTabla(datos) {
         
     });
 }
+
 
 
