@@ -43,7 +43,7 @@
           <form class="mt-5 col-12" runat="server">
             <div class="col-12"> 
                     <div class="input-group col-12">
-                        <p>*Nombre completo&nbsp;&nbsp;&nbsp;</p>
+                        <p>*Nombre completo:&nbsp;&nbsp;&nbsp;</p>
                         <asp:TextBox ID="txtnombre" runat="server" class="form-control" placeholder="Nombre completo"></asp:TextBox>
                          <div class="col-md-3 col-sm-3 col-xs-3 pad-adjust">
                             <asp:Button ID="Button1" class="btn btn-block" runat="server" style="background-color:lightblue" OnClick="Button1_Click" Text="Ver Progreso" />
@@ -51,48 +51,80 @@
                     </div>
                     <br />
                     <div class="input-group col-12">
-                        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Datos del usuario :"></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Datos del Usuario"></asp:Label>
                     </div>
                     <br />
                     <div class="input-group col-12">
-                        <p>Nombre :&nbsp;&nbsp;&nbsp;</p>
+                        <p>Clave de Usuario:&nbsp;&nbsp;&nbsp;</p>
+                        <asp:Label ID="lblclaveusuario" runat="server"  class="form-control" Text="********"></asp:Label>
+                        &nbsp;&nbsp;&nbsp;
+                        <p>Nombre:&nbsp;&nbsp;&nbsp;</p>
                         <asp:Label ID="lblNombre" runat="server"  class="form-control" Text="********"></asp:Label>
                         &nbsp;&nbsp;&nbsp;
-                        <p>Teléfono :&nbsp;&nbsp;&nbsp;</p>
-                        <asp:Label ID="lblTelefono" runat="server" class="form-control" Text="********"></asp:Label>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <p>Correo electronico :&nbsp;&nbsp;&nbsp;</p>
-                        <asp:Label ID="lblCorreo" runat="server" class="form-control" Text="********"></asp:Label>
+                        <p>No.Control:&nbsp;&nbsp;&nbsp;</p>
+                        <asp:Label ID="lblNoc" runat="server" class="form-control" Text="********"></asp:Label>
                     </div>
                     <br />
                     <div class="input-group col-12">
-                        <p>No. Control :&nbsp;&nbsp;&nbsp;</p>
-                        <asp:Label ID="lblNoc" runat="server" class="form-control" Text="********"></asp:Label>
-                        <p>&nbsp;&nbsp;Es Alumno :&nbsp;&nbsp;&nbsp;</p>
+                        <p>Teléfono:&nbsp;&nbsp;&nbsp;</p>
+                        <asp:Label ID="lblTelefono" runat="server" class="form-control" Text="********"></asp:Label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <p>Correo Electronico:&nbsp;&nbsp;&nbsp;</p>
+                        <asp:Label ID="lblCorreo" runat="server" class="form-control" Text="********"></asp:Label>
+                        &nbsp;&nbsp;&nbsp;
+                        <p>&nbsp;&nbsp;Es Alumno:&nbsp;&nbsp;&nbsp;</p>
                         <asp:Label ID="lblEsal" runat="server" class="form-control" Text="********"></asp:Label>
                     </div>
                     <br />
                     <div class="input-group col-12">
-                        <asp:Label ID="lbl6" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Datos de la QSF :"></asp:Label>
+                        <asp:Label ID="lbl6" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Datos del Servicio Solicitado"></asp:Label>
                     </div>
                     <br />
                     <div class="input-group col-12">
-                        <p>Fecha :&nbsp;&nbsp;&nbsp;</p>
+                        <p>Clave de Solicitud:&nbsp;&nbsp;&nbsp;</p>
+                        <asp:Label ID="lblclaveqsf" runat="server"  class="form-control" Text="********"></asp:Label>
+                        &nbsp;&nbsp;&nbsp;
+                        <p>Fecha:&nbsp;&nbsp;&nbsp;</p>
                          <asp:Label ID="lblFecha" runat="server" class="form-control" Text="********"></asp:Label>
-                        <p>&nbsp;&nbsp;Servicio Solicitado :&nbsp;&nbsp;&nbsp;</p>
+                        <p>&nbsp;&nbsp;Servicio Solicitado:&nbsp;&nbsp;&nbsp;</p>
                         <asp:Label ID="lblTipoServ" runat="server" class="form-control" Text="********"></asp:Label>
                     </div>
                     <br />
                     <div class="input-group col-12">
-                        <p>Prioridad Identificada :&nbsp;&nbsp;&nbsp;</p>
+                        <p>Departamento a cargo de su atención:&nbsp;&nbsp;&nbsp;</p>
+                        <asp:Label ID="lbldepartamento" runat="server"  class="form-control" Text="********"></asp:Label>
+                        &nbsp;&nbsp;&nbsp;
+                        <p>Prioridad Identificada:&nbsp;&nbsp;&nbsp;</p>
                          <asp:Label ID="lblPrio" runat="server"  class="form-control" Text="********"></asp:Label>
-                        <p>&nbsp;&nbsp;Estatus :&nbsp;&nbsp;&nbsp;</p>
+                        <p>&nbsp;&nbsp;Estatus:&nbsp;&nbsp;&nbsp;</p>
                         <asp:Label ID="lblestatus" runat="server" class="form-control"  Text="********"></asp:Label>
                     </div>
                     <br />
                     <div class="input-group col-12">
-                         <p>Descripción :&nbsp;&nbsp;&nbsp;</p>
+                         <p>Descripción:&nbsp;&nbsp;&nbsp;</p>
                          <asp:Label ID="lblDescrip" runat="server" class="form-control" Text="***********************"></asp:Label>
+                    </div>
+                    <br />
+                    <div class="input-group col-12">
+                         <p>Observaciones:&nbsp;&nbsp;&nbsp;</p>
+                         <asp:Label ID="lblobservaciones" runat="server" class="form-control" Text="***********************"></asp:Label>
+                    </div>
+                    <br />
+                    <div class="input-group col-12">
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                         <div class="col-md-3 col-sm-3 col-xs-3 pad-adjust">
+                            <asp:Button ID="Button2" class="btn btn-block" runat="server" style="background-color:lightblue" OnClick="Button2_Click" Text="<<" />
+                         </div>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="col-md-3 col-sm-3 col-xs-3 pad-adjust">
+                            <asp:Button ID="Button3" class="btn btn-block" runat="server" style="background-color:lightblue" OnClick="Button3_Click" Text=">>" />
+                         </div>
                     </div>
                 </div>
             </form>
