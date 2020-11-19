@@ -18,5 +18,3 @@ values
 (null,20190328,'Baja','Finalizada','Queja','Academico','No funciona el proyector del aula AT5 ', 'Tu queja fue atendida, esperamos haber resuelto el problema',3),
 (null,20190528,'Baja','En proceso','Felicitacion','Academico','Queria felicitar al conserje por mantener la escuela limpia', 'El destinatario agradece tu felicitacion',4),
 (null,20190528,'Media','En proceso','Queja','Administracion','En el aula de cisco no existen los suficientes routers para realizar nuestras practicas', 'Se dirigio tu queja al departamento correspondiente, espera respuesta',5);
-
-select * from qsf;
