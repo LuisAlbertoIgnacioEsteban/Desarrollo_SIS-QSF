@@ -93,26 +93,25 @@ namespace Backend.Daos
             
             try
             {
-                QSF qsf = new QSF();
+                QSF queja = new QSF();
 
-                string strSQL = 
-                "select Prioridad, Estatus, ClaveQSF, Fecha, Tipo_Servicio, Departamento, Descripcion, Observaciones,UsuarioSolicitante from qsf where ClaveQSF = 1;";
+                string strSQL =
+                "select Prioridad, Estatus, ClaveQSF, Fecha, Tipo_Servicio, Departamento, Descripcion, Observaciones,UsuarioSolicitante from qsf where ClaveQSF = ClaveQSF;";
                 MySqlCommand comando = new MySqlCommand(strSQL, con);
                 comando.Parameters.AddWithValue("@ClaveQSF", id);
                 comando.ExecuteNonQuery();
                 MySqlDataAdapter adaptador = new MySqlDataAdapter(comando);
+                
                 DataTable tabla = new DataTable();
                 adaptador.Fill(tabla);
 
                 DataRow row = tabla.Rows[0];
 
-                QSF queja = new QSF();
-
                 queja.ClaveQSF = int.Parse(row["ClaveQSF"].ToString());
                 queja.Prioridad = row["Prioridad"].ToString();
                 queja.Estatus = row["Estatus"].ToString();
                 queja.Departamento = row["Departamento"].ToString();
-                queja.TipoServicio = row["TipoServicio"].ToString();
+                queja.TipoServicio = row["Tipo_Servicio"].ToString();
                 queja.Descripcion = row["Descripcion"].ToString();
                 queja.Observaciones = row["Observaciones"].ToString();
                 queja.Fecha = row["Fecha"].ToString();
@@ -176,7 +175,6 @@ namespace Backend.Daos
            
             try
             {
-                con.Open();
                 String sql = "delete from qsf where ClaveQSF = @ClaveQSF;";
 
                 MySqlCommand comando = new MySqlCommand(sql, con);

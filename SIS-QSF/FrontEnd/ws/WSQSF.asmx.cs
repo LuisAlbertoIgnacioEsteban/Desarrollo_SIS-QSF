@@ -1,4 +1,5 @@
 ﻿using Backend.Daos;
+using Backend.Clases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,30 @@ namespace FrontEnd.ws
                 JavaScriptSerializer jss = new JavaScriptSerializer();
                 return jss.Serialize(new DaoQSF().getAll());
                        
+        }
+
+
+        [WebMethod(EnableSession = true)]
+        public String getOnebyID(String id)
+        {
+            JavaScriptSerializer jss = new JavaScriptSerializer();
+            return jss.Serialize(new DaoQSF().getOnebyID(id));
+
+        }
+
+        [WebMethod(EnableSession = true)]
+        public String update(String QSF)
+        {
+            JavaScriptSerializer jss = new JavaScriptSerializer();
+            return jss.Serialize(new DaoQSF().update(jss.Deserialize<QSF>(QSF)));
+
+        }
+
+        [WebMethod(EnableSession = true)]
+        public bool delete(String id)
+        {
+            return new DaoQSF().delete(id);
+
         }
     }
 }
