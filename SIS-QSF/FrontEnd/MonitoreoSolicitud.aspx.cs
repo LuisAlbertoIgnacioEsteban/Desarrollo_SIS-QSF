@@ -16,7 +16,9 @@ namespace FrontEnd
 
         }
 
-        public DataTable tabla;// se crea una variable tipo tabla, ya que el web service nos devolvera una tabla como resultado
+        public DataTable tabla;
+        Usuario us = new Usuario();
+        int fila;
 
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -26,19 +28,80 @@ namespace FrontEnd
             }// se comprueba si el campo esta vacio, si lo esta manda mensaje, sino prosigue
             else
             {
-                Usuario us = new Usuario();
-                tabla = us.ObtenerSolicitudes(txtnombre.Text);// asignacion de la tabla del web service a la variable
-                lblNombre.Text = "" + tabla.Rows[0]["Nombre"];// se obtienen los valores de la tabla y se asignan a las etiquetas
-                lblTelefono.Text = "" + tabla.Rows[0]["Telefono"];
-                lblNoc.Text = "" + tabla.Rows[0]["NoControl"];
-                lblCorreo.Text = "" + tabla.Rows[0]["Correo"];
-                lblEsal.Text = "" + tabla.Rows[0]["EsAlumno"];
-                lblFecha.Text = "" + tabla.Rows[0]["Fecha"];
-                lblTipoServ.Text = "" + tabla.Rows[0]["Tipo_Servicio"];
-                lblPrio.Text = "" + tabla.Rows[0]["Prioridad"];
-                lblestatus.Text = "" + tabla.Rows[0]["Estatus"];
-                lblDescrip.Text = "" + tabla.Rows[0]["Descripcion"];
+                
+                tabla = us.ObtenerSolicitudes(txtnombre.Text);// asignacion de la tabla a la variable
+                fila = 0;
+                lblclaveusuario.Text = "" + tabla.Rows[fila]["ClaveUsuario"];// se obtienen los valores de la tabla y se asignan a las etiquetas
+                lblNombre.Text = "" + tabla.Rows[fila]["Nombre"];
+                lblNoc.Text = "" + tabla.Rows[fila]["NoControl"];
+                lblTelefono.Text = "" + tabla.Rows[fila]["Telefono"]; 
+                lblCorreo.Text = "" + tabla.Rows[fila]["Correo"];
+                lblEsal.Text = "" + tabla.Rows[fila]["EsAlumno"];
+                lblclaveqsf.Text = "" + tabla.Rows[fila]["ClaveQSF"];
+                lblFecha.Text = "" + tabla.Rows[fila]["Fecha"];
+                lblTipoServ.Text = "" + tabla.Rows[fila]["Tipo_Servicio"];
+                lbldepartamento.Text = "" + tabla.Rows[fila]["Departamento"];
+                lblPrio.Text = "" + tabla.Rows[fila]["Prioridad"];
+                lblestatus.Text = "" + tabla.Rows[fila]["Estatus"];
+                lblDescrip.Text = "" + tabla.Rows[fila]["Descripcion"];
+                lblobservaciones.Text = "" + tabla.Rows[fila]["Observaciones"];
             }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            /*if (!txtnombre.Text.Equals(lblNombre.Text))
+            {
+                Response.Write("<script>alert('El nombre no corresponde con el usuario propietario de las solicitudes')</script>");
+            }// se comprueba si el campo esta vacio, si lo esta manda mensaje, sino prosigue
+            else
+            {
+                tabla = us.ObtenerSolicitudes(txtnombre.Text);// asignacion de la tabla a la variable
+                fila--;
+                Response.Write("<script>alert(" + fila + ")</script>");
+                lblclaveusuario.Text = "" + tabla.Rows[fila]["ClaveUsuario"];// se obtienen los valores de la tabla y se asignan a las etiquetas
+                lblNombre.Text = "" + tabla.Rows[fila]["Nombre"];
+                lblNoc.Text = "" + tabla.Rows[fila]["NoControl"];
+                lblTelefono.Text = "" + tabla.Rows[fila]["Telefono"];
+                lblCorreo.Text = "" + tabla.Rows[fila]["Correo"];
+                lblEsal.Text = "" + tabla.Rows[fila]["EsAlumno"];
+                lblclaveqsf.Text = "" + tabla.Rows[fila]["ClaveQSF"];
+                lblFecha.Text = "" + tabla.Rows[fila]["Fecha"];
+                lblTipoServ.Text = "" + tabla.Rows[fila]["Tipo_Servicio"];
+                lbldepartamento.Text = "" + tabla.Rows[fila]["Departamento"];
+                lblPrio.Text = "" + tabla.Rows[fila]["Prioridad"];
+                lblestatus.Text = "" + tabla.Rows[fila]["Estatus"];
+                lblDescrip.Text = "" + tabla.Rows[fila]["Descripcion"];
+                lblobservaciones.Text = "" + tabla.Rows[fila]["Observaciones"];
+            }*/
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            /*if (!txtnombre.Text.Equals(lblNombre.Text))
+            {
+                Response.Write("<script>alert('El nombre no corresponde con el usuario propietario de las solicitudes')</script>");
+            }// se comprueba si el campo esta vacio, si lo esta manda mensaje, sino prosigue
+            else
+            {
+                tabla = us.ObtenerSolicitudes(txtnombre.Text);// asignacion de la tabla a la variable
+                fila++;
+                Response.Write("<script>alert("+fila+")</script>");
+                lblclaveusuario.Text = "" + tabla.Rows[fila]["ClaveUsuario"];// se obtienen los valores de la tabla y se asignan a las etiquetas
+                lblNombre.Text = "" + tabla.Rows[fila]["Nombre"];
+                lblNoc.Text = "" + tabla.Rows[fila]["NoControl"];
+                lblTelefono.Text = "" + tabla.Rows[fila]["Telefono"];
+                lblCorreo.Text = "" + tabla.Rows[fila]["Correo"];
+                lblEsal.Text = "" + tabla.Rows[fila]["EsAlumno"];
+                lblclaveqsf.Text = "" + tabla.Rows[fila]["ClaveQSF"];
+                lblFecha.Text = "" + tabla.Rows[fila]["Fecha"];
+                lblTipoServ.Text = "" + tabla.Rows[fila]["Tipo_Servicio"];
+                lbldepartamento.Text = "" + tabla.Rows[fila]["Departamento"];
+                lblPrio.Text = "" + tabla.Rows[fila]["Prioridad"];
+                lblestatus.Text = "" + tabla.Rows[fila]["Estatus"];
+                lblDescrip.Text = "" + tabla.Rows[fila]["Descripcion"];
+                lblobservaciones.Text = "" + tabla.Rows[fila]["Observaciones"];
+            }*/
         }
     }
 }

@@ -67,9 +67,9 @@ namespace Backend.Daos
             {
                 ds = new DataTable("La tabla");//ASIGNACION A LA VARIABLE
 
-                string strSQL = "select usuarios.Nombre, usuarios.NoControl, usuarios.Telefono, usuarios.Correo," +
-                    " usuarios.EsAlumno, qsf.Tipo_Servicio, qsf.Prioridad, qsf.Estatus, qsf.Fecha, qsf.Descripcion " +
-                    "from usuarios inner join qsf on usuarios.ClaveUsuario = qsf.UsuarioSolicitante where usuarios.Nombre=@Usuario limit 1;";
+                string strSQL = "select u.ClaveUsuario, u.Nombre, u.NoControl, u.Telefono, u.Correo, u.EsAlumno," +
+                    " q.ClaveQSF, q.Fecha, q.Tipo_Servicio, q.Departamento, q.Prioridad, q.Estatus, q.Descripcion, q.Observaciones " +
+                    "from usuarios u join qsf q on u.ClaveUsuario=q.UsuarioSolicitante where u.Nombre=@Usuario order by q.fecha desc, q.ClaveQSF desc;";
                 //consulta sql que va a realizarse
                 MySqlCommand comando = new MySqlCommand(strSQL, Conexion.ObtenerConexion());//ASIGNACION DE SCRIP Y CONEXION A LA BASE DE DATOS
                 comando.Parameters.AddWithValue("@Usuario", Usuario);//se asignan los parametros al script
