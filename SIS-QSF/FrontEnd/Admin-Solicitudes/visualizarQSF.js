@@ -47,15 +47,13 @@ function llenarTabla(datos) {
 
             {
                 title: "", data: null, render: function (data, type, row) {
-                    return '<button id="btnSeleccion" type="button" aria-pressed="false"' 
-                    +   'data - toggle="modal" class="btn btn-outline-success" data - target="#Ventanamodal" > <i class="fas fa-edit"></i></button > '
-                        + '<button id="btnSeleccion" type="button" aria-pressed="false" onclick="" "' +
-                        ' data-toggle="button" class="btn btn-outline-success"><i class="fas fa-trash-alt"></i></i></button>' +
-                         '<button id="btnSeleccion" type="button" aria-pressed="false" onclick="" "' +
-                         ' data-toggle="button" class="btn btn-outline-success"><i class="fas fa-search"></i></button>';;
+                    return '<button id="btnVer" type="button" onclick="verSolicitud(`' + data.ClaveQSF + '`,`' + data.Prioridad + '`,`' + data.Estatus + '`,`' + data.Departamento + '`,`' + data.Descripcion + '`,`' + data.TipoServicio + '`,`' + data.Observaciones + '`,`' + data.Fecha + '`,`' + data.UsuarioSolicitante +'`)" class="btn btn-success" ><i class="fas fa-eye"></i></button>' +
+                        '<button id="btnEditar" type="button" onclick="editarSolicitud(`' + data.ClaveQSF + '`,`' + data.Prioridad + '`,`' + data.Estatus + '`,`' + data.Departamento + '`,`' + data.Descripcion + '`,`' + data.TipoServicio + '`,`' + data.Observaciones + '`,`' + data.Fecha + '`,`' + data.UsuarioSolicitante +'`)" class="btn btn-primary" ><i class="fas fa-pen-square"></i></button>' +
+                           '<button id="btnEliminar"  type="button" onclick="eliminarSolicitud()" class="btn btn-danger" ><i class="fas fa-trash-alt"></i></button>';
                 }
             }    
         ],
+        "scrollX": true,
         "fnInitComplete": function (oSettings, json) {
             /Configuración de los filtros individuales/
             var fila = $(this).children("thead").children("tr").clone();
@@ -118,5 +116,78 @@ function llenarTabla(datos) {
     });
 }
 
+//Funcion para llenar el modal mdlVisualizar con los datos de la solictud seleccionada en la tabla
+function verSolicitud(ClaveQSF, Prioridad, Estatus, Departamento, Descripcion,
+    TipoServicio, Observaciones, Fecha, UsuarioSolicitante) {
+    $('#txtClaveQSF_V').val(ClaveQSF);
+    $('#txtUsuarioSolicitante_V').val(UsuarioSolicitante);
+    $('#txtFecha_V').val(Fecha);
+    $('#txtPrioridad_V').val(Prioridad);
+    $('#txtEstatus_V').val(Estatus);
+    $('#txtTipo_Servicio_V').val(TipoServicio);
+    $('#txtDepartamento_V').val(Departamento);
+    $('#txtDescripcion_V').val(Descripcion);
+    $('#txtObservaciones_V').val(Observaciones);
+    $('#mdlVisualizar').modal();
+}
+
+function editarSolicitud(ClaveQSF, Prioridad, Estatus, Departamento, Descripcion,
+    TipoServicio, Observaciones, Fecha, UsuarioSolicitante) {
+
+    $('#txtClaveQSF').val(ClaveQSF);
+    $('#txtUsuarioSolicitante').val(UsuarioSolicitante);
+    $('#txtFecha').val(Fecha);
+    //Seleccionar la opcion del Estatus que corresponda a la solicitud
+    if (Prioridad == "Alta") {
+        index = 0;
+    } else if (Prioridad == "Media") {
+        index = 1;
+    } else {
+        index = 2;
+    }  
+    $('#cboPrioridad option[value=' + index + ']').attr("selected", true);
+    //Seleccionar la opcion del Estatus que corresponda a la solicitud
+    if (Estatus == "No iniciada") {
+        index = 0;
+    } else if (Prioridad == "Iniciada") {
+        index = 1;
+    } else if (Prioridad == "En proceso") {
+        index = 2;
+    } else if (Prioridad == "Finalizada") {
+        index = 3;
+    } else {
+        index = 4;
+    }  
+    $('#cboEstatus option[value=' + index + ']').attr("selected", true);
+    //Seleccionar la opcion del TipoServicio que corresponda a la solicitud
+    if (TipoServicio == "Queja") {
+        index = 0;
+    } else if (Prioridad == "Sugerencia") {
+        index = 1;
+    } else {
+        index = 2;
+    }  
+    $('#cboTipo_Servicio option[value=' + index + ']').attr("selected", true);
+    //Seleccionar la del Departamento opcion que corresponda a la solicitud
+    if (Departamento == "Calidad") {
+        index = 0;
+    } else if (Prioridad == "Vinculacion") {
+        index = 1;
+    } else if (Prioridad == "Academico") {
+        index = 2;
+    } else {
+        index = 3;
+    } 
+    $('#cboDepartamento option[value=' + index + ']').attr("selected", true);
+    $('#txtDescripcion').val(Descripcion);
+    $('#txtObservaciones').val(Observaciones);
+    $('#mdlEditar').modal();
+}
+
+
+function eliminarSolicitud() {
+    $('#mdlEliminar').modal();
+    //Mostrar un alert para notificar si fue correcta la eliminacion
+}
 
 
