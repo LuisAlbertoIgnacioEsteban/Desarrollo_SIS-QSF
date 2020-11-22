@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Backend.Clases; 
+using Backend.Clases;
+using Backend.Daos;
 
 namespace FrontEnd
 {
@@ -12,7 +13,8 @@ namespace FrontEnd
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
+            
         }
 
         Usuario usuario = new Usuario();//instancia de la clase Usuario

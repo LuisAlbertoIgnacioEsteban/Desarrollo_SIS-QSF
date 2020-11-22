@@ -32,6 +32,9 @@
                 <li class="nav-item">
                     <a href="Admin-Solicitudes/visualizarQSF.aspx" class="nav-link"><h6 style="color:white;">Administración</h6></a>
                 </li>
+                <li class="nav-item">
+                    <a href="Admin-Solicitudes/GenerarReportes.aspx" class="nav-link"><h6 style="color:white;">Generar Reportes</h6></a>
+                </li>
             </ul>
         </div>
     </nav>
