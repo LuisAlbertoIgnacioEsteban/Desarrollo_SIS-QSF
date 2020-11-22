@@ -69,6 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin-Solicitudes\GenerarReportes.aspx" />
     <Content Include="Admin-Solicitudes\visualizarQSF.aspx" />
     <Content Include="Admin-Solicitudes\visualizarQSF.js" />
     <Content Include="jss\bootstrap.bundle.js" />
@@ -87,6 +88,13 @@
     <Content Include="ws\WSQSF.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin-Solicitudes\GenerarReportes.aspx.cs">
+      <DependentUpon>GenerarReportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin-Solicitudes\GenerarReportes.aspx.designer.cs">
+      <DependentUpon>GenerarReportes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin-Solicitudes\visualizarQSF.aspx.cs">
       <DependentUpon>visualizarQSF.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

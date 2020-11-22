@@ -191,5 +191,85 @@ namespace Backend.Daos
             }
         }
 
+        public String getTipoS(String depa)
+        {
+            MySqlConnection con = new Conexion().getConexion();
+            String Data = "";
+            try
+            {
+                String sql = "SELECT COUNT(*) FROM qsf where Tipo_Servicio='Queja' and Departamento=@Departamento;";
+
+                MySqlCommand comando = new MySqlCommand(sql, con);
+                comando.Parameters.AddWithValue("Departamento", depa);
+                comando.ExecuteNonQuery();
+
+
+                MySqlDataAdapter adaptador = new MySqlDataAdapter(comando);
+
+                DataTable tabla = new DataTable();
+                adaptador.Fill(tabla);
+
+                DataRow row2 = tabla.Rows[0];
+
+                Data += row2["COUNT(*)"].ToString();
+               
+                try
+                {
+                    
+
+                    String sql2 = "SELECT COUNT(*) FROM qsf where Tipo_Servicio='Sugerencia'  and Departamento=@Departamento;";
+
+                    MySqlCommand comando2 = new MySqlCommand(sql2, con);
+                    comando2.Parameters.AddWithValue("Departamento", depa);
+                    comando2.ExecuteNonQuery();
+
+
+                    MySqlDataAdapter adaptador2 = new MySqlDataAdapter(comando2);
+
+                    DataTable tabla2 = new DataTable();
+                    adaptador2.Fill(tabla2);
+
+                    DataRow row = tabla2.Rows[0];
+
+                    Data += "," + row["COUNT(*)"].ToString();
+
+                    try
+                    {
+
+
+                        String sql3 = "SELECT COUNT(*) FROM qsf where Tipo_Servicio='Felicitacion' and Departamento=@Departamento;;";
+
+                        MySqlCommand comando3 = new MySqlCommand(sql3, con);
+                        comando3.Parameters.AddWithValue("Departamento", depa);
+                        comando3.ExecuteNonQuery();
+
+
+                        MySqlDataAdapter adaptador3 = new MySqlDataAdapter(comando3);
+
+                        DataTable tabla3 = new DataTable();
+                        adaptador3.Fill(tabla3);
+
+                        DataRow row3 = tabla3.Rows[0];
+
+                        Data += "," + row3["COUNT(*)"].ToString();
+
+                    }
+                    catch (Exception e) { return "ERROR :c"; }
+
+                }
+                catch (Exception e) { return "ERROR :c"; }
+                
+            
+            return Data;
+            }
+            catch (Exception e) { return "ERROR :c"; }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
     }
+
 }
