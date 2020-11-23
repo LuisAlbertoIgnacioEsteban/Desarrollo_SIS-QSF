@@ -50,3 +50,6 @@ SIS-QSF/Backend/obj/Debug/BackEnd.csproj.CoreCompileInputs.cache
 SIS-QSF/Backend/obj/Debug/BackEnd.csprojAssemblyReference.cache
 SIS-QSF/FrontEnd/obj/Debug/FrontEnd.csproj.CoreCompileInputs.cache
 SIS-QSF/FrontEnd/obj/Debug/FrontEnd.csprojAssemblyReference.cache
+SIS-QSF/.vs/SIS-QSF/DesignTimeBuild/.dtbcache
+SIS-QSF/.vs/SIS-QSF/v15/.suo
+SIS-QSF/.vs/SIS-QSF/v15/Server/sqlite3/storage.ide-wal
