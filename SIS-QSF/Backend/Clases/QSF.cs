@@ -18,7 +18,7 @@ namespace Backend.Clases
             public string Descripcion { get; set; }
             public string Observaciones { get; set; }
             public string Fecha { get; set; }
-            public string UsuarioSolicitante { get; set; }
+            public int UsuarioSolicitante { get; set; }
 
             // Creación de objetos para poder acceder a ellos y enlazar los atributos
             DaoQSF dqsf = new DaoQSF();
