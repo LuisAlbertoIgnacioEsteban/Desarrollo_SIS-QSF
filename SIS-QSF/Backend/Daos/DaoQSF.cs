@@ -44,9 +44,10 @@ namespace Backend.Daos
             MySqlConnection con = new Conexion().getConexion();
                 try
                 {
-               
-                
-                String strSql = "select Prioridad, Estatus, ClaveQSF, Fecha, Tipo_Servicio, Departamento,Descripcion, Observaciones,UsuarioSolicitante from qsf;";
+
+
+                String strSql = "select t1.Prioridad, t1.Estatus, t1.ClaveQSF, t1.Fecha, t1.Tipo_Servicio, t1.Departamento, t1.Descripcion, t1.Observaciones, t2.Nombre as UsuarioSolicitante from qsf t1 Inner join usuarios t2 ON(t1.UsuarioSolicitante=t2.ClaveUsuario);";
+
 
                 MySqlCommand comando = new MySqlCommand(strSql, con);
 
@@ -66,7 +67,7 @@ namespace Backend.Daos
                     queja.Descripcion = fila["Descripcion"].ToString();
                     queja.Observaciones = fila["Observaciones"].ToString();
                     queja.Fecha = fila["Fecha"].ToString();
-                    queja.UsuarioSolicitante = int.Parse(fila["UsuarioSolicitante"].ToString());
+                    queja.UsuarioSolicitante = fila["UsuarioSolicitante"].ToString();
                     Console.WriteLine(queja.ClaveQSF+" ");
                     qsf.Add(queja);
 
@@ -96,7 +97,8 @@ namespace Backend.Daos
                 QSF queja = new QSF();
 
                 string strSQL =
-                "select Prioridad, Estatus, ClaveQSF, Fecha, Tipo_Servicio, Departamento, Descripcion, Observaciones,UsuarioSolicitante from qsf where ClaveQSF = ClaveQSF;";
+                "select t1.Prioridad, t1.Estatus, t1.ClaveQSF, t1.Fecha, t1.Tipo_Servicio, t1.Departamento, t1.Descripcion, t1.Observaciones, t2.Nombre as nombre from qsf t1Inner join usuarios t2 ON(t1.UsuarioSolicitante=t2.ClaveUsuario) where ClaveQSF = ClaveQSF;";
+
                 MySqlCommand comando = new MySqlCommand(strSQL, con);
                 comando.Parameters.AddWithValue("@ClaveQSF", id);
                 comando.ExecuteNonQuery();
@@ -115,7 +117,7 @@ namespace Backend.Daos
                 queja.Descripcion = row["Descripcion"].ToString();
                 queja.Observaciones = row["Observaciones"].ToString();
                 queja.Fecha = row["Fecha"].ToString();
-                queja.UsuarioSolicitante = int.Parse(row["UsuarioSolicitante"].ToString());
+                queja.UsuarioSolicitante = row["UsuarioSolicitante"].ToString();
 
 
                 return queja;

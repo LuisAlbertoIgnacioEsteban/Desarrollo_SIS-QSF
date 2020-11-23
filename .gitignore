@@ -53,3 +53,5 @@ SIS-QSF/FrontEnd/obj/Debug/FrontEnd.csprojAssemblyReference.cache
 SIS-QSF/.vs/SIS-QSF/DesignTimeBuild/.dtbcache
 SIS-QSF/.vs/SIS-QSF/v15/.suo
 SIS-QSF/.vs/SIS-QSF/v15/Server/sqlite3/storage.ide-wal
+*.pdb
+*.pdb
