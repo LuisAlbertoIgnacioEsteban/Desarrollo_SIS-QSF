@@ -48,6 +48,7 @@ namespace Backend.Daos
 
                 String strSql = "select t1.Prioridad, t1.Estatus, t1.ClaveQSF, t1.Fecha, t1.Tipo_Servicio, t1.Departamento, t1.Descripcion, t1.Observaciones, t2.Nombre as UsuarioSolicitante from qsf t1 Inner join usuarios t2 ON(t1.UsuarioSolicitante=t2.ClaveUsuario);";
 
+
                 MySqlCommand comando = new MySqlCommand(strSql, con);
 
                 MySqlDataAdapter adaptador = new MySqlDataAdapter(comando);
@@ -95,7 +96,6 @@ namespace Backend.Daos
             {
                 QSF queja = new QSF();
 
-               
                 string strSQL =
                 "select t1.Prioridad, t1.Estatus, t1.ClaveQSF, t1.Fecha, t1.Tipo_Servicio, t1.Departamento, t1.Descripcion, t1.Observaciones, t2.Nombre as nombre from qsf t1Inner join usuarios t2 ON(t1.UsuarioSolicitante=t2.ClaveUsuario) where ClaveQSF = ClaveQSF;";
 
