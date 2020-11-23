@@ -93,7 +93,7 @@ namespace FrontEnd
                     qsf.Descripcion = txtdescripcion.Text;
                     qsf.Observaciones = "-";//valor inicial de este campo
                     usuario.Insertar(usuario);//llamada del metodo insertar usuario
-                    qsf.UsuarioSolicitante = usuario.ObtenerClave(usuario.Nombre);//llamada del metodo para obtener la claveusuario
+                    qsf.UsuarioSolicitante = usuario.ObtenerClave(usuario.Nombre).ToString();//llamada del metodo para obtener la claveusuario
                     qsf.Insertar(qsf);//llamada del metodo insertar qsf
                     txtnombre.Text = "";
                     txtcorreo.Text = "";
