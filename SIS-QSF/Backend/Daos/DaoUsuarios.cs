@@ -90,5 +90,68 @@ namespace Backend.Daos
             return ds;//RETORNO DE LA TABLA
         }
 
+        public DataTable ObtenerSolicitudSiguiente(int clave, string Usuario)//metodo que obtiene la siguiente solicitud del usuario
+        {
+            MySqlDataAdapter mda = null;//se crea un adapatador
+            DataTable ds = null;//VARIABLE TIPO TABLA PARA ALMACENAR Y RETORNARLA
+            try
+            {
+                ds = new DataTable("La tabla");//ASIGNACION A LA VARIABLE
+
+                string strSQL = "select u.ClaveUsuario, u.Nombre, u.NoControl, u.Telefono, u.Correo, u.EsAlumno," +
+                    " q.ClaveQSF, q.Fecha, q.Tipo_Servicio, q.Departamento, q.Prioridad, q.Estatus, q.Descripcion, q.Observaciones " +
+                    "from usuarios u join qsf q on u.ClaveUsuario=q.UsuarioSolicitante where u.Nombre=@Usuario and not q.ClaveQSF=@clave and q.ClaveQSF<@clave order by q.fecha desc, q.ClaveQSF desc limit 1";
+                //consulta sql que va a realizarse
+                MySqlCommand comando = new MySqlCommand(strSQL, Conexion.ObtenerConexion());//ASIGNACION DE SCRIP Y CONEXION A LA BASE DE DATOS
+                comando.Parameters.AddWithValue("@clave", clave);//se asignan los parametros al script
+                comando.Parameters.AddWithValue("@Usuario", Usuario);//se asignan los parametros al script
+                mda = new MySqlDataAdapter(comando);//se ejecuta el comando
+                mda.Fill(ds);//se asigna la tabla
+                comando.Dispose();//libera el comando
+            }
+            catch (Exception io)
+            {
+
+            }
+            finally
+            {
+                // Cerramos la conexión
+                Conexion.ObtenerConexion().Close();
+                Conexion.ObtenerConexion().Dispose();
+            }
+            return ds;//RETORNO DE LA TABLA
+        }
+
+        public DataTable ObtenerSolicitudAnterior(int clave, string Usuario)//metodo que obtiene la anterior solicitud del usuario
+        {
+            MySqlDataAdapter mda = null;//se crea un adapatador
+            DataTable ds = null;//VARIABLE TIPO TABLA PARA ALMACENAR Y RETORNARLA
+            try
+            {
+                ds = new DataTable("La tabla");//ASIGNACION A LA VARIABLE
+
+                string strSQL = "select u.ClaveUsuario, u.Nombre, u.NoControl, u.Telefono, u.Correo, u.EsAlumno," +
+                    " q.ClaveQSF, q.Fecha, q.Tipo_Servicio, q.Departamento, q.Prioridad, q.Estatus, q.Descripcion, q.Observaciones " +
+                    "from usuarios u join qsf q on u.ClaveUsuario=q.UsuarioSolicitante where u.Nombre=@Usuario and not q.ClaveQSF=@clave and q.ClaveQSF>@clave order by q.fecha asc, q.ClaveQSF asc limit 1";
+                //consulta sql que va a realizarse
+                MySqlCommand comando = new MySqlCommand(strSQL, Conexion.ObtenerConexion());//ASIGNACION DE SCRIP Y CONEXION A LA BASE DE DATOS
+                comando.Parameters.AddWithValue("@clave", clave);//se asignan los parametros al script
+                comando.Parameters.AddWithValue("@Usuario", Usuario);//se asignan los parametros al script
+                mda = new MySqlDataAdapter(comando);//se ejecuta el comando
+                mda.Fill(ds);//se asigna la tabla
+                comando.Dispose();//libera el comando
+            }
+            catch (Exception io)
+            {
+
+            }
+            finally
+            {
+                // Cerramos la conexión
+                Conexion.ObtenerConexion().Close();
+                Conexion.ObtenerConexion().Dispose();
+            }
+            return ds;//RETORNO DE LA TABLA
+        }
     }
 }

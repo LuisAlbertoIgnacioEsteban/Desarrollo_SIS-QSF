@@ -36,5 +36,15 @@ namespace Backend.Clases
         {
             return du.ObtenerSolicitudesUsuario(nombre);
         }
+
+        public DataTable ObtenerSiguiente(int clave, string nombre)
+        {
+            return du.ObtenerSolicitudSiguiente(clave, nombre);
+        }
+
+        public DataTable ObtenerAnterior(int clave, string nombre)
+        {
+            return du.ObtenerSolicitudAnterior(clave, nombre);
+        }
     }
 }
