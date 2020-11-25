@@ -57,8 +57,7 @@
           </div>
           <div class="row">
             <div class="col-sm-12">
-                <div class="alert alert-success" role="alert">
-                  A simple success alert—check it out!
+                <div id="alert" >
                 </div>
             </div>
           </div>
@@ -131,10 +130,9 @@
                         </div>
                            <select class="form-control" id="cboEstatus"  name="cboEstatus">
                               <option value="0">No iniciada</option>
-                              <option value="1">Iniciada</option>
-                              <option value="2">En proceso</option>
-                              <option value="3">Finalizada</option>
-                              <option value="4">Rechazada</option>
+                              <option value="1">En proceso</option>
+                              <option value="2">Finalizada</option>
+                              <option value="3">Rechazada</option>
                             </select>
                         </div>
                     </div>
@@ -164,7 +162,8 @@
                               <option value="0">Calidad</option>
                               <option value="1">Vinculacion</option>
                               <option value="2">Academico</option> 
-                              <option value="3">Administracion</option>
+                               <option value="3">Planeacion</option> 
+                              <option value="4">Administracion</option>
                             </select>
                         </div>
                     </div>
@@ -172,12 +171,12 @@
 
                <div class="mb-3 form-group">
                     <label for="txtDescripcion">Descripcion</label>
-                    <textarea class="form-control" id="txtDescripcion" rows="3"></textarea>
+                    <textarea class="form-control" id="txtDescripcion" rows="3" readonly></textarea>
                </div>
              
                 <div class="mb-3 form-group">
                     <label for="txtObservaciones">Observaciones</label>
-                    <textarea class="form-control" id="txtObservaciones" rows="3"></textarea>
+                    <textarea class="form-control" id="txtObservaciones" rows="3" ></textarea>
                 </div>
             </form>
               <hr/>
@@ -188,11 +187,11 @@
                 </div>
                 <input type="email" id="txtCorreo" name="txtCorreo" aria-describedby="emailHelp" class="form-control" placeholder="Correo a donde sera enviada la solicitud" />
               </div>
-              <button type="button" class="btn btn-primary">Enviar correo</button>
+              <button type="button" id="btnEnviar"class="btn btn-primary">Enviar correo</button>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-success">Guardar</button>
+            <button id="btnEditar" type="button" class="btn btn-success">Guardar</button>
           </div>
         </div>
       </div>
@@ -313,7 +312,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-primary">Aceptar</button>
+            <button id="bntborrarServicio" type="button"  class="btn btn-primary" >Aceptar</button>
           </div>
         </div>
       </div>
@@ -321,7 +320,7 @@
     
 </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-   
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="visualizarQSF.js"></script>
     <script src="../jss/bootstrap.js"></script>
     <script src="../jss/jquery-3.4.1.js"></script>
