@@ -86,7 +86,7 @@ namespace FrontEnd
                     {
                         usuario.NoControl = "-";
                     }
-                    qsf.Fecha = fecha.ToString("yyyy/MM/dd");//se establece el formato para la fecha actual
+                    qsf.Fecha = fecha.ToString("yyyy-MM-dd");//se establece el formato para la fecha actual
                     qsf.Prioridad = "Baja";//asignaciones de las cajas de texto a cada atributo de la lista QSF
                     qsf.Estatus = "No iniciada";
                     qsf.Departamento = "Calidad";

@@ -49,7 +49,7 @@ function llenarTabla(datos) {
                 title: "", data: null, render: function (data, type, row) {
                     return '<button id="btnVer" type="button" onclick="verSolicitud(`' + data.ClaveQSF + '`,`' + data.Prioridad + '`,`' + data.Estatus + '`,`' + data.Departamento + '`,`' + data.Descripcion + '`,`' + data.TipoServicio + '`,`' + data.Observaciones + '`,`' + data.Fecha + '`,`' + data.UsuarioSolicitante +'`)" class="btn btn-success" ><i class="fas fa-eye"></i></button>' +
                         '<button id="btnEditar" type="button" onclick="editarSolicitud(`' + data.ClaveQSF + '`,`' + data.Prioridad + '`,`' + data.Estatus + '`,`' + data.Departamento + '`,`' + data.Descripcion + '`,`' + data.TipoServicio + '`,`' + data.Observaciones + '`,`' + data.Fecha + '`,`' + data.UsuarioSolicitante +'`)" class="btn btn-primary" ><i class="fas fa-pen-square"></i></button>' +
-                           '<button id="btnEliminar"  type="button" onclick="eliminarSolicitud()" class="btn btn-danger" ><i class="fas fa-trash-alt"></i></button>';
+                        '<button id="btnEliminar"  type="button" onclick="eliminarSolicitud(`' + data.ClaveQSF + '`)" class="btn btn-danger" ><i class="fas fa-trash-alt"></i></button>';
                 }
             }    
         ],
@@ -131,9 +131,21 @@ function verSolicitud(ClaveQSF, Prioridad, Estatus, Departamento, Descripcion,
     $('#mdlVisualizar').modal();
 }
 
+
+var clav = "";
+var fecha = "";
+var obs = "";
+//variables para correo
+var tos = "";
+var des = "";
 function editarSolicitud(ClaveQSF, Prioridad, Estatus, Departamento, Descripcion,
     TipoServicio, Observaciones, Fecha, UsuarioSolicitante) {
 
+    clav = ClaveQSF;
+    fecha = Fecha;
+    tos = TipoServicio;
+    des = Descripcion;
+    var index = 0;
     $('#txtClaveQSF').val(ClaveQSF);
     $('#txtUsuarioSolicitante').val(UsuarioSolicitante);
     $('#txtFecha').val(Fecha);
@@ -144,50 +156,157 @@ function editarSolicitud(ClaveQSF, Prioridad, Estatus, Departamento, Descripcion
         index = 1;
     } else {
         index = 2;
-    }  
-    $('#cboPrioridad option[value=' + index + ']').attr("selected", true);
+    }
+
+    $("#cboPrioridad option[value=" + index + "]").attr("selected", true);
     //Seleccionar la opcion del Estatus que corresponda a la solicitud
     if (Estatus == "No iniciada") {
         index = 0;
-    } else if (Prioridad == "Iniciada") {
+    } else if (Estatus == "En proceso") {
         index = 1;
-    } else if (Prioridad == "En proceso") {
+    } else if (Estatus == "Finalizada") {
         index = 2;
-    } else if (Prioridad == "Finalizada") {
-        index = 3;
     } else {
-        index = 4;
-    }  
+        index = 3;
+    }
+
     $('#cboEstatus option[value=' + index + ']').attr("selected", true);
     //Seleccionar la opcion del TipoServicio que corresponda a la solicitud
     if (TipoServicio == "Queja") {
         index = 0;
-    } else if (Prioridad == "Sugerencia") {
+    } else if (TipoServicio == "Sugerencia") {
         index = 1;
     } else {
         index = 2;
-    }  
+    }
     $('#cboTipo_Servicio option[value=' + index + ']').attr("selected", true);
     //Seleccionar la del Departamento opcion que corresponda a la solicitud
+    
     if (Departamento == "Calidad") {
         index = 0;
-    } else if (Prioridad == "Vinculacion") {
+    } else if (Departamento == "Vinculacion") {
         index = 1;
-    } else if (Prioridad == "Academico") {
+    } else if (Departamento == "Academico") {
         index = 2;
-    } else {
+    } else if (Departamento == "Planeacion") {
         index = 3;
-    } 
-    $('#cboDepartamento option[value=' + index + ']').attr("selected", true);
+    } else {
+        index = 4;
+    }
+
+
+    $("#cboDepartamento option[value=" + index + "]").attr("selected", true);
     $('#txtDescripcion').val(Descripcion);
     $('#txtObservaciones').val(Observaciones);
     $('#mdlEditar').modal();
+
+
 }
 
 
-function eliminarSolicitud() {
+
+
+function QSF(Priority, Status, TS, depa) {
+    let obj = {};
+    debugger;
+    obj.Prioridad = Priority;
+    obj.Estatus = Status;
+    obj.Fecha = fecha.substr(0, 10);
+    obj.TipoServicio = TS;
+    obj.Departamento = depa;
+    obj.Observaciones = $('textarea#txtObservaciones').val();
+    obj.ClaveQSF = clav;
+    
+    return JSON.stringify(obj);
+}
+
+
+
+
+var cadena = "";
+function eliminarSolicitud(ClaveQSF) {
+    $("#parrafo").val(ClaveQSF);
+    cadena = ClaveQSF;
     $('#mdlEliminar').modal();
     //Mostrar un alert para notificar si fue correcta la eliminacion
 }
 
+$("#btnEnviar").click(function () {
 
+    
+    Email.send({
+        SecureToken: "e13031bc-5cbd-4713-80bf-f22cad113c3f",
+        To: $('#txtCorreo').val(),
+        From: "Calidad_ITSUR@gmail.com",
+        Subject:  tos  ,
+        Body:   des 
+    }).then(
+        message => alert(message)
+    );
+
+});
+
+$("#bntborrarServicio").click(function () {
+   
+
+    FrontEnd.ws.WSQSF.delete(cadena, function (result) {
+        if (result) {
+            location.reload();
+        } else {
+            tpl = '<div class="alert alert-danger hide" role="alert">' + "Error de tipo" + error +
+                ' <button type="button" class="close" data-dismiss="alert" aria-label="Close">  <span aria-hidden="true">&times;</span>  </button> </div>';
+            $('#alert').html(tpl);
+        }
+    },
+        function (error) {
+
+            tpl = '<div class="alert alert-danger hide" role="alert">' + "Error de tipo" + error +
+                ' <button type="button" class="close" data-dismiss="alert" aria-label="Close">  <span aria-hidden="true">&times;</span>  </button> </div>';
+            $('#alert').html(tpl);
+        }
+    );
+
+});
+
+
+
+$("#btnEditar").click(function () {
+
+    FrontEnd.ws.WSQSF.update(QSF(
+        $('#cboPrioridad').find('option:selected').text(),
+        $('#cboEstatus').find('option:selected').text(),
+        $('#cboTipo_Servicio').find('option:selected').text(),
+        $('#cboDepartamento').find('option:selected').text()
+        
+    ), function (result) {
+        if (result) {
+            
+            location.reload();
+
+            //Creacion del Alert que mostrara que el usuario no existe
+            tpl = '<div class="alert alert-danger hide" role="alert">' + "Datos Actualizados" +
+                ' <button type="button"class="alert alert-success" aria-label="Close">  <span aria-hidden="true">&times;</span>  </button> </div>';
+            //El mensaje de error se mostrara en un div con el id " alert "
+            $('#alert').html(tpl);
+        } else {
+            //Creacion del Alert que mostrara que el usuario no existe
+            tpl = '<div class="alert alert-danger hide" role="alert">' + "No se pudieron guardar los cambios" +
+                ' <button type="button" class="close" data-dismiss="alert" aria-label="Close">  <span aria-hidden="true">&times;</span>  </button> </div>';
+            //El mensaje de error se mostrara en un div con el id " alert "
+            $('#alert').html(tpl);
+        }
+    },
+        function (error) {
+            //Creacion del Alert que mostrara que el usuario no existe
+            tpl = '<div class="alert alert-danger hide" role="alert">' + "Error de tipo " + error +
+                ' <button type="button" class="close" data-dismiss="alert" aria-label="Close">  <span aria-hidden="true">&times;</span>  </button> </div>';
+            //El mensaje de error se mostrara en un div con el id " alert "
+            $('#alert').html(tpl);
+        }
+    );
+
+    
+    
+    
+   
+});

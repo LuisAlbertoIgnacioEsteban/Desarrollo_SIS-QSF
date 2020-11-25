@@ -140,13 +140,10 @@ namespace Backend.Daos
             
             try
             {
-                con.Open();
-
-                String sql = "update qsf set Prioridad = @Prioridad, Estatus = @Estatus, " +
-                "Fecha = @Fecha' ,Tipo_Servicio = @Tipo_Servicio, " +
-                "Departamento = @Departamento,Descripcion = @Descripcion," +
-                "Observaciones = @Observaciones, UsuarioSolicitante = @UsuarioSolicitante where ClaveQSF = @ClaveQSF;";
-
+               
+                string sql = "update qsf set Prioridad = @Prioridad, Estatus = @Estatus, Fecha=(STR_TO_DATE(REPLACE(@Fecha,'/','.') ,GET_FORMAT(date,'EUR'))) ,Tipo_Servicio = @Tipo_Servicio,  Departamento = @Departamento, Observaciones =  @Observaciones where ClaveQSF = @ClaveQSF; ";
+                
+                   
 
                 MySqlCommand comando = new MySqlCommand(sql, con);
                 comando.Parameters.AddWithValue("Prioridad",qsf.Prioridad);
@@ -154,9 +151,7 @@ namespace Backend.Daos
                 comando.Parameters.AddWithValue("Fecha",qsf.Fecha);
                 comando.Parameters.AddWithValue("Tipo_Servicio", qsf.TipoServicio);
                 comando.Parameters.AddWithValue("Departamento", qsf.Departamento);
-                comando.Parameters.AddWithValue("Descripcion", qsf.Descripcion);
                 comando.Parameters.AddWithValue("Observaciones", qsf.Observaciones);
-                comando.Parameters.AddWithValue("UsuarioSolicitante", qsf.UsuarioSolicitante);
                 comando.Parameters.AddWithValue("ClaveQSF", qsf.ClaveQSF);
 
                 comando.ExecuteNonQuery();

@@ -7,6 +7,7 @@ using System.Security;
 using System.Web;
 using System.Web.Script.Serialization;
 using System.Web.Services;
+using System.Windows;
 
 namespace FrontEnd.ws
 {
@@ -39,11 +40,12 @@ namespace FrontEnd.ws
         }
 
         [WebMethod(EnableSession = true)]
-        public String update(String QSF)
+        public bool update(String QSF)
         {
             JavaScriptSerializer jss = new JavaScriptSerializer();
-            return jss.Serialize(new DaoQSF().update(jss.Deserialize<QSF>(QSF)));
-
+            //MessageBox.Show(jss.Deserialize<QSF>(QSF).ClaveQSF.ToString()); 
+            return new DaoQSF().update(jss.Deserialize<QSF>(QSF));
+            
         }
 
         [WebMethod(EnableSession = true)]
