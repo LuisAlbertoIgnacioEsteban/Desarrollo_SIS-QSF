@@ -11,9 +11,9 @@
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
     <title></title>
-    <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
+
     <!--NavBar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#"><h1><img style="width:6em" src="../Imagenes/sisqsf.png"/></h1></a>
@@ -318,8 +318,10 @@
         </div>
       </div>
     </div>
+    
 </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   
     <script src="visualizarQSF.js"></script>
     <script src="../jss/bootstrap.js"></script>
     <script src="../jss/jquery-3.4.1.js"></script>

@@ -10,10 +10,8 @@
     <link rel="icon" type="image/jpg" href="Imagenes/itsur.jpg">
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/estilo.css" />
-    <link rel="stylesheet" href="estilos/style.css" />
 </head>
 <body>
-     <div class="fondo"></div>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <h1><img src="Imagenes/sisqsf.png"/></h1>
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
