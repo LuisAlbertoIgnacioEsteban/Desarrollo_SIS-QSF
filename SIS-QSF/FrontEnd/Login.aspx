@@ -8,16 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Login</title>
-    <link rel="stylesheet" href="estilos/style.css" />
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
+    <link rel="stylesheet" href="css/style.css" />
+
+
 </head>
 <body>
     <div class="fondo"></div>
     <div class="contenedor">
-        <div id="login" class="margin-left margin-right">
-            <form runat="server" class="">
+        <div id="login"  class="margin-left margin-right">
+            <form runat="server">
                 <div class="center-text">
+                    <br />
                     <i id="title" class="far fa-arrow-alt-circle-right fa-2x"></i>
                     <h3 class="display-inline-flex">Inicia sesión</h3>
                 </div>
@@ -31,7 +33,7 @@
                         <asp:TextBox ID="txtPass" runat="server" class="mytext" placeholder="Contraseña" TextMode="Password"></asp:TextBox>
                     </div>
                     <div>
-                        <asp:Label ID="lblMensaje" runat="server" class="alert-danger" Text=""></asp:Label>
+                        <asp:Label ID="lblMensaje" runat="server" BackColor="Red" ForeColor="White" ></asp:Label>
                         <asp:Button class="mybtn" ID="id" runat="server" Text="Iniciar Sesión" OnClick="inicio_Click"/>
                     </div>
                 </div>
