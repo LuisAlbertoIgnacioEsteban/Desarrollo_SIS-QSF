@@ -181,3 +181,5 @@ C:\Users\joseluis\Documents\GitHub\Desarrollo_SIS-QSF\SIS-QSF\FrontEnd\obj\Debug
 C:\Users\joseluis\Documents\GitHub\Desarrollo_SIS-QSF\SIS-QSF\FrontEnd\obj\Debug\FrontEnd.csproj.CopyComplete
 C:\Users\joseluis\Documents\GitHub\Desarrollo_SIS-QSF\SIS-QSF\FrontEnd\obj\Debug\FrontEnd.dll
 C:\Users\joseluis\Documents\GitHub\Desarrollo_SIS-QSF\SIS-QSF\FrontEnd\obj\Debug\FrontEnd.pdb
+C:\Users\DeoZ1\Documents\GitHub\Desarrollo_SIS-QSF\SIS-QSF\FrontEnd\obj\Debug\FrontEnd.csprojAssemblyReference.cache
+C:\Users\DeoZ1\Documents\GitHub\Desarrollo_SIS-QSF\SIS-QSF\FrontEnd\obj\Debug\FrontEnd.csproj.CoreCompileInputs.cache
