@@ -58,64 +58,36 @@
                         <asp:TextBox ID="txtnombre" class="form-control" placeholder="Nombre del alumno" runat="server"></asp:TextBox>
                         &nbsp;&nbsp;&nbsp;
                         <p>Teléfono&nbsp;&nbsp;&nbsp;</p>
-                        <asp:TextBox ID="txttelefono" class="form-control" placeholder="Teléfono del alumno" runat="server"></asp:TextBox>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <p>*&nbsp;Tipo de Servicio</p>
-                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:TextBox ID="txttelefono" class="form-control" placeholder="Teléfono del alumno" runat="server"></asp:TextBox>       
                     </div>
                     <br />
                     <div class="input-group col-12">
                         <p>Correo electronico&nbsp;&nbsp;&nbsp;</p>
                         <asp:TextBox ID="txtcorreo" class="form-control" placeholder="Correo electronico del alumno" runat="server"></asp:TextBox>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <p>
-                            <asp:RadioButton ID="rbqueja" runat="server" Text="Queja" />
-                        </p>
-                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <p>Tipo de Servicio: &nbsp;&nbsp;&nbsp;</p>
+                        <asp:RadioButtonList ID="rblista" runat="server" CellSpacing = "10"  RepeatDirection="Horizontal">
+                            <asp:ListItem Text="Queja" Value="1" ></asp:ListItem>
+                            <asp:ListItem Text="Sugerencia" Value="2"></asp:ListItem>
+                            <asp:ListItem Text="Felicitación" Value="3"></asp:ListItem>
+                        </asp:RadioButtonList>
                     </div>
                     <br />
                     <div class="input-group col-12">
-                        <p>*&nbsp;Alumno:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                        <p>*&nbsp;Alumno:&nbsp;&nbsp;&nbsp;</p>
+                        <asp:RadioButtonList ID="rblista2" runat="server" RepeatDirection="Horizontal" CellSpacing="10">
+                            <asp:ListItem Text="Si" Value="1"></asp:ListItem>
+                            <asp:ListItem Text="No" Value="2"></asp:ListItem>
+                        </asp:RadioButtonList>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <p>No.Control&nbsp;&nbsp;&nbsp;</p>
-                        <asp:TextBox ID="txtnocontrol" class="form-control" placeholder="No.Control del alumno" runat="server"></asp:TextBox>
-                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <p>
-                            <asp:RadioButton ID="rbsugerencia" runat="server" Text="Sugerencia" />
-                        </p>
-                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                         &nbsp;&nbsp;&nbsp;&nbsp;      
-                    </div>
-                    <div class="input-group col-12">
-                        
-                        <p>
-                            <asp:RadioButton ID="rbsi" runat="server" Text="Si" />
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:RadioButton ID="rbno" runat="server" Text="No" />
-                            <br />
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:RadioButton ID="rbfelicitacion"  runat="server" Text="Felicitación" />
-                        </p>
-                    </div>
-                            
+                        <asp:TextBox ID="txtnocontrol" class="form-control" placeholder="No.Control del alumno" runat="server"></asp:TextBox> 
+                    </div>                  
             </div>
+            <br />
+            <br />
             <div class="input-group col-12">
-                <asp:TextBox ID="txtdescripcion" class="form-control" placeholder="* Descripción de la problematica" runat="server" TextMode="MultiLine" Height="80px" Width="404px"></asp:TextBox>
+                <asp:TextBox ID="txtdescripcion" class="form-control" placeholder="* Descripción de la problematica" runat="server" TextMode="MultiLine" Height="120px" Width="404px"></asp:TextBox>
             </div>
             <br>
             <center>
