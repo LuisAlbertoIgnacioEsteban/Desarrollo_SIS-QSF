@@ -24,56 +24,17 @@ namespace FrontEnd
 
         protected void btnregistrar_Click(object sender, EventArgs e)
         {
-            if (txtnombre.Text == "" || txtdescripcion.Text == "" || (!rbsi.Checked && !rbno.Checked)
-                || (!rbqueja.Checked && !rbfelicitacion.Checked && !rbsugerencia.Checked))
+            if (txtnombre.Text == "" || txtdescripcion.Text == "" || rblista.SelectedIndex==-1 || rblista2.SelectedIndex==-1)
             {
                 Response.Write("<script>alert('Falta llenar los campos obligatorios *')</script>");
             }//compara si los campos obligatorios estan vacios, si lo estan manda un mensaje, sino realiza el proceso de insertar
             else
             {
-                if ((rbsi.Checked && rbno.Checked) || (rbqueja.Checked && rbfelicitacion.Checked && rbsugerencia.Checked)
-                    || (rbqueja.Checked && rbfelicitacion.Checked) || (rbqueja.Checked && rbsugerencia.Checked)
-                    || (rbsugerencia.Checked && rbfelicitacion.Checked))
-                {//verifica que solo se marque una opcion por grupo de radiobutons, si hay mas de 1 manda mensaje
-                    Response.Write("<script>alert('Solo puedes marcar una opcion(circulo) por pregunta')</script>");
-                    if (rbsi.Checked && rbno.Checked)
-                    {
-                        rbsi.Checked = false;
-                        rbno.Checked = false;
-                    }//si hay mas de un radiobuton de tipo "Es Alumno" los devuelve a su estado inicial
-                    else
-                    {
-                        rbqueja.Checked = false;
-                        rbfelicitacion.Checked = false;
-                        rbsugerencia.Checked = false;
-                    }//si hay mas de un radiobuton de tipo "Tipo Servicio" los devuelve a su estado inicial
-                }
-                else//si no hay mas de 1 radiobuton, prosige con el proceso de insertar
-                {
-                    if (rbsi.Checked)//asignaciones del radiobuton seleccionado
-                    {
-                        usuario.EsAlumno = rbsi.Text;
-                    }
-                    if (rbno.Checked)
-                    {
-                        usuario.EsAlumno = rbno.Text;
-                    }
-                    if (rbqueja.Checked)
-                    {
-                        qsf.TipoServicio = rbqueja.Text;
-                    }
-                    if (rbfelicitacion.Checked)
-                    {
-                        qsf.TipoServicio = rbfelicitacion.Text;
-                    }
-                    if (rbsugerencia.Checked)
-                    {
-                        qsf.TipoServicio = rbsugerencia.Text;
-                    }
                     usuario.Nombre = txtnombre.Text;//asignaciones de las cajas de texto a cada atributo de la lista Usuario
                     usuario.Telefono = txttelefono.Text;
                     usuario.Correo = txtcorreo.Text;
                     usuario.NoControl = txtnocontrol.Text;
+                    usuario.EsAlumno = rblista2.SelectedItem.Text;
                     if (usuario.Telefono == "")//asignaciones de un - como valor si se dejan cajas de texto vacias
                     {
                         usuario.Telefono = "-";
@@ -89,6 +50,7 @@ namespace FrontEnd
                     qsf.Fecha = fecha.ToString("yyyy-MM-dd");//se establece el formato para la fecha actual
                     qsf.Prioridad = "Baja";//asignaciones de las cajas de texto a cada atributo de la lista QSF
                     qsf.Estatus = "No iniciada";
+                    qsf.TipoServicio = rblista.SelectedItem.Text;
                     qsf.Departamento = "Calidad";
                     qsf.Descripcion = txtdescripcion.Text;
                     qsf.Observaciones = "-";//valor inicial de este campo
@@ -100,12 +62,6 @@ namespace FrontEnd
                     txttelefono.Text = "";
                     txtnocontrol.Text = "";
                     txtdescripcion.Text = "";
-                    rbsi.Checked = false;
-                    rbno.Checked = false;
-                    rbqueja.Checked = false;
-                    rbfelicitacion.Checked = false;
-                    rbsugerencia.Checked = false;//se regresan las cajas de texto,variables y radiobutons a su estado inicial
-                }
             }
         }
     }
