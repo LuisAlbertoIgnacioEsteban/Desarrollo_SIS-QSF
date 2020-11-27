@@ -51,7 +51,7 @@
             impacto al Servicio Educativo que ofrece el ITSUR y será válida si presenta los siguinetes datos:
         </h5>
         <div class="row">
-          <form class="mt-5 col-12" runat="server">
+          <form class="mt-5 col-12" runat="server" id="frmLlenadoSolicitud">
             <div class="col-12"> 
                     <div class="input-group col-12">
                         <p>*&nbsp;Nombre&nbsp;&nbsp;&nbsp;</p>
@@ -60,36 +60,59 @@
                         <p>Teléfono&nbsp;&nbsp;&nbsp;</p>
                         <asp:TextBox ID="txttelefono" class="form-control" placeholder="Teléfono del alumno" runat="server"></asp:TextBox>       
                     </div>
-                    <br />
                     <div class="input-group col-12">
-                        <p>Correo electronico&nbsp;&nbsp;&nbsp;</p>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*Es obligatorio ingresar tu nombre" ControlToValidate="txtnombre" ForeColor="Red"></asp:RequiredFieldValidator>
+                    </div>
+                    <div class="input-group col-12">
+                        <p>*&nbsp;Correo electronico&nbsp;&nbsp;&nbsp;</p>
                         <asp:TextBox ID="txtcorreo" class="form-control" placeholder="Correo electronico del alumno" runat="server"></asp:TextBox>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <p>Tipo de Servicio: &nbsp;&nbsp;&nbsp;</p>
-                        <asp:RadioButtonList ID="rblista" runat="server" CellSpacing = "10"  RepeatDirection="Horizontal">
+                        <asp:RadioButtonList ID="rblservicio" runat="server" CellSpacing = "10"  RepeatDirection="Horizontal">
                             <asp:ListItem Text="Queja" Value="1" ></asp:ListItem>
                             <asp:ListItem Text="Sugerencia" Value="2"></asp:ListItem>
                             <asp:ListItem Text="Felicitación" Value="3"></asp:ListItem>
                         </asp:RadioButtonList>
                     </div>
-                    <br />
+                    <div class="input-group col-12">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*Es obligatorio ingresar el correo" ControlToValidate="txtcorreo" ForeColor="Red"></asp:RequiredFieldValidator>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Debes seleccionar una opción" ControlToValidate="rblservicio" ForeColor="Red"></asp:RequiredFieldValidator> 
+                    </div>
                     <div class="input-group col-12">
                         <p>*&nbsp;Alumno:&nbsp;&nbsp;&nbsp;</p>
-                        <asp:RadioButtonList ID="rblista2" runat="server" RepeatDirection="Horizontal" CellSpacing="10">
+                        <asp:RadioButtonList ID="rblalumno" runat="server" RepeatDirection="Horizontal" CellSpacing="10">
                             <asp:ListItem Text="Si" Value="1"></asp:ListItem>
                             <asp:ListItem Text="No" Value="2"></asp:ListItem>
                         </asp:RadioButtonList>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <p>No.Control&nbsp;&nbsp;&nbsp;</p>
                         <asp:TextBox ID="txtnocontrol" class="form-control" placeholder="No.Control del alumno" runat="server"></asp:TextBox> 
-                    </div>                  
+                    </div>
+                    <div class="input-group col-12">
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*Debes seleccionar una opción" ControlToValidate="rblalumno" ForeColor="Red"></asp:RequiredFieldValidator>
+                    </div>    
             </div>
-            <br />
             <br />
             <div class="input-group col-12">
-                <asp:TextBox ID="txtdescripcion" class="form-control" placeholder="* Descripción de la problematica" runat="server" TextMode="MultiLine" Height="120px" Width="404px"></asp:TextBox>
+                <asp:TextBox ID="txtdescripcion" class="form-control" placeholder="Descripción de la problematica" runat="server" TextMode="MultiLine" Height="150px" Width="404px"></asp:TextBox>
             </div>
-            <br>
+            <div class="input-group col-12">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*Descripción Obligatoria" ControlToValidate="txtdescripcion" ForeColor="Red"></asp:RequiredFieldValidator>
+            </div>
             <center>
                 <div class="col-md-3 col-sm-3 col-xs-3 pad-adjust">
                     <asp:Button ID="btnregistrar" class="btn btn-block" runat="server" style="background-color:lightblue" Text="Generar Registro" OnClick="btnregistrar_Click" />
