@@ -21,9 +21,9 @@ namespace Backend.Clases
         DaoUsuarios du = new DaoUsuarios();
 
         // Método que nos permite enlazar los atributos para poder insertar un registro en la BD
-        public void Insertar(Usuario us)
+        public bool Insertar(Usuario us)
         {
-            du.InsertarUsuario(us);
+            return du.InsertarUsuario(us);
         }
 
         // Método que nos permite enlazar los atributos para poder obtener la clave del usuario que acaba de solicitar la QSF

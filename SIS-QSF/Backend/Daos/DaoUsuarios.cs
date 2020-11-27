@@ -11,7 +11,7 @@ namespace Backend.Daos
 {
     public class DaoUsuarios
     {
-        public void InsertarUsuario(Usuario usuario)
+        public bool InsertarUsuario(Usuario usuario)
         {
             try
             {
@@ -25,12 +25,18 @@ namespace Backend.Daos
                 comando.Parameters.AddWithValue("@correo", usuario.Correo);//parametrisa las variables de comando, asignandoles los valores que la pagina web envio
                 comando.ExecuteNonQuery();//ejecuta el comando sql
                 comando.Dispose();//libera el comando utilizado
-                Conexion.ObtenerConexion().Close();//cierra conexion
-                Conexion.ObtenerConexion().Dispose();//libera la variable de conexion
+                return true;
             }
             catch (Exception)
             {
-                throw;//arroja un error si no se puede hacer la consulta sql
+                return false;
+            }
+            finally
+            {
+                // Cerramos la conexión
+                Conexion.ObtenerConexion().Close();
+                Conexion.ObtenerConexion().Dispose();
+                
             }
         }// metodo usado para insertar un usuario en mysql, recibe los atributos de un usuario como parametros
 
