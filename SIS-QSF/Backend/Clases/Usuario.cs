@@ -26,6 +26,11 @@ namespace Backend.Clases
             return du.InsertarUsuario(us);
         }
 
+        public int ControlTotalUsuarios(string correo)
+        {
+            return du.ControlUsuarios(correo);
+        }
+
         // Método que nos permite enlazar los atributos para poder obtener la clave del usuario que acaba de solicitar la QSF
         public int ObtenerClave(string correo)
         {
