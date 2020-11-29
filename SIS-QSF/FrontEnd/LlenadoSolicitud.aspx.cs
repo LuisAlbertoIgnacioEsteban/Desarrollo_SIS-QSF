@@ -45,7 +45,27 @@ namespace FrontEnd
                 qsf.Departamento = "Calidad";
                 qsf.Descripcion = txtdescripcion.Text;
                 qsf.Observaciones = "-";
-                if (usuario.Insertar(usuario) == true)
+                if(usuario.ControlTotalUsuarios(usuario.Correo)==0)
+                {
+                    if (usuario.Insertar(usuario) == true)
+                    {
+                        qsf.UsuarioSolicitante = usuario.ObtenerClave(usuario.Correo).ToString();//llamada del metodo para obtener la claveusuario
+                        qsf.Insertar(qsf);//llamada del metodo insertar qsf
+                        txtnombre.Text = "";
+                        txtcorreo.Text = "";
+                        txttelefono.Text = "";
+                        txtnocontrol.Text = "";
+                        txtdescripcion.Text = "";
+                        rblservicio.SelectedIndex = -1;
+                        rblalumno.SelectedIndex = -1;
+                        Response.Write("<script>alert('Registro exitoso!!!')</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Ocurrio un error')</script>");
+                    }
+                }
+                else
                 {
                     qsf.UsuarioSolicitante = usuario.ObtenerClave(usuario.Correo).ToString();//llamada del metodo para obtener la claveusuario
                     qsf.Insertar(qsf);//llamada del metodo insertar qsf
@@ -58,10 +78,7 @@ namespace FrontEnd
                     rblalumno.SelectedIndex = -1;
                     Response.Write("<script>alert('Registro exitoso!!!')</script>");
                 }
-                else
-                {
-                    Response.Write("<script>alert('Ocurrio un error')</script>");
-                }
+                
             }
         }
     }

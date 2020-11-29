@@ -40,6 +40,31 @@ namespace Backend.Daos
             }
         }// metodo usado para insertar un usuario en mysql, recibe los atributos de un usuario como parametros
 
+        public int ControlUsuarios(string correo)
+        {
+            try
+            {
+                int usuario = 0;//se crea una variable numerica
+                string strSQL = "select count(*) from usuarios where Correo=@correo";//consulta sql que va a realizarse
+                MySqlCommand comando = new MySqlCommand(strSQL, Conexion.ObtenerConexion());//asigna la consulta y la conexion a la variable comando
+                comando.Parameters.AddWithValue("@correo", correo);//parametrisa la variable de comando, asignandole el valor que la pagina web envio
+                comando.ExecuteNonQuery();//ejecuta el comando sql
+                MySqlDataReader reader = comando.ExecuteReader();//crea un lector y lo ejecuta
+                while (reader.Read())//empieza a leer las filas que muestra la consulta sql 
+                {
+                    usuario = reader.GetInt16(0);//asigna el valor de la columna que muestra la consulta
+                }
+                comando.Dispose();//libera el comando utilizado
+                Conexion.ObtenerConexion().Close();//cierra conexion
+                Conexion.ObtenerConexion().Dispose();//libera la variable de conexion
+                return usuario;//devuelve la lista con todos los valores que tiene
+            }
+            catch (Exception)
+            {
+                throw;//arroja un error si no se puede hacer la consulta sql
+            }
+        }// metodo usado para obtener la clave del usuario que realizo la qsf actualmente, recibe 1 parametro
+
         public int ObtenerClaveUsuario(string correo)
         {
             try
@@ -57,7 +82,7 @@ namespace Backend.Daos
                 comando.Dispose();//libera el comando utilizado
                 Conexion.ObtenerConexion().Close();//cierra conexion
                 Conexion.ObtenerConexion().Dispose();//libera la variable de conexion
-                return clave;//devuelve la lista con todos los valores que tiene
+                return clave;
             }
             catch (Exception)
             {
