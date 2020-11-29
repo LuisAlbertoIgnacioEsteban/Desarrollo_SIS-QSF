@@ -7,7 +7,7 @@ values
 (null,'S16120302','José Luis González Ruiz','Si','4453232434','Chelis@gmail.com'),
 (null,'S16120301','Christian Benigno Morales Morales','Si','4455483592','beni@gmail.com'),
 (null,'S16120307','Ignacio Esteban Nacho','Si','4456789080','Nacho@gmail.com'),
-(null,'S16120310','Alexis Guillermo Hernandez','Si','-','-'),
+(null,'S16120310','Alexis Guillermo Hernandez','Si','-','Alexis@gmail.com'),
 (null,'-','Diego Escutia Olvera','No','-','Escutia@gmail.com');
 
 insert into qsf(ClaveQSF,Fecha,Prioridad,Estatus,Tipo_Servicio,Departamento,Descripcion,Observaciones,UsuarioSolicitante)

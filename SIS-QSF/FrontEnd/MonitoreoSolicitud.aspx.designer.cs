@@ -13,13 +13,13 @@ namespace FrontEnd {
     public partial class MonitoreoSolicitud {
         
         /// <summary>
-        /// Control txtnombre.
+        /// Control txtcorreo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtnombre;
+        protected global::System.Web.UI.WebControls.TextBox txtcorreo;
         
         /// <summary>
         /// Control Button1.

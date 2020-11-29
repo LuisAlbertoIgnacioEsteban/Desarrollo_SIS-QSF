@@ -20,7 +20,7 @@ namespace FrontEnd
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (txtnombre.Text == "")
+            if (txtcorreo.Text == "")
             {
                 Response.Write("<script>alert('Falta llenar el campo obligatorio *')</script>");
             }// se comprueba si el campo esta vacio, si lo esta manda mensaje, sino prosigue
@@ -28,7 +28,7 @@ namespace FrontEnd
             {
                 DataTable tabla;
                 Usuario us = new Usuario();
-                tabla = us.ObtenerSolicitudes(txtnombre.Text);// asignacion de la tabla a la variable
+                tabla = us.ObtenerSolicitudes(txtcorreo.Text);// asignacion de la tabla a la variable
                 lblclaveusuario.Text = "" + tabla.Rows[0]["ClaveUsuario"];// se obtienen los valores de la tabla y se asignan a las etiquetas
                 lblNombre.Text = "" + tabla.Rows[0]["Nombre"];
                 lblNoc.Text = "" + tabla.Rows[0]["NoControl"];
@@ -48,13 +48,13 @@ namespace FrontEnd
 
         protected void Btnatras_Click(object sender, EventArgs e)
         {
-            if (txtnombre.Text == "")
+            if (txtcorreo.Text == "")
             {
-                Response.Write("<script>alert('No has ingresado el usuario')</script>");
+                Response.Write("<script>alert('No has ingresado tu correo')</script>");
             }
             else
             {
-                if (!txtnombre.Text.Equals(lblNombre.Text))
+                if (!txtcorreo.Text.Equals(lblCorreo.Text))
                 {
                     Response.Write("<script>alert('El nombre no corresponde con el usuario propietario de las solicitudes')</script>");
                 }// se comprueba si el campo esta vacio, si lo esta manda mensaje, sino prosigue
@@ -62,7 +62,7 @@ namespace FrontEnd
                 {
                     DataTable tabla2;
                     Usuario us2 = new Usuario();
-                    tabla2 = us2.ObtenerAnterior(Convert.ToInt16(lblclaveqsf.Text), txtnombre.Text);// asignacion de la tabla a la variable
+                    tabla2 = us2.ObtenerAnterior(Convert.ToInt16(lblclaveqsf.Text), txtcorreo.Text);// asignacion de la tabla a la variable
                     if (tabla2.Rows.Count == 0)
                     {
                         Response.Write("<script>alert('Esta es la solicitud más reciente')</script>");
@@ -90,13 +90,13 @@ namespace FrontEnd
 
         protected void Btnadelante_Click(object sender, EventArgs e)
         {
-            if (txtnombre.Text == "")
+            if (txtcorreo.Text == "")
             {
-                Response.Write("<script>alert('No has ingresado el usuario')</script>");
+                Response.Write("<script>alert('No has ingresado tu correo')</script>");
             }
             else
             {
-                if (!txtnombre.Text.Equals(lblNombre.Text))
+                if (!txtcorreo.Text.Equals(lblCorreo.Text))
                 {
                     Response.Write("<script>alert('El nombre no corresponde con el usuario propietario de las solicitudes')</script>");
                 }// se comprueba si el campo esta vacio, si lo esta manda mensaje, sino prosigue
@@ -104,7 +104,7 @@ namespace FrontEnd
                 {
                     DataTable tabla3;
                     Usuario us3 = new Usuario();
-                    tabla3 = us3.ObtenerSiguiente(Convert.ToInt16(lblclaveqsf.Text), txtnombre.Text);// asignacion de la tabla a la variable
+                    tabla3 = us3.ObtenerSiguiente(Convert.ToInt16(lblclaveqsf.Text), txtcorreo.Text);// asignacion de la tabla a la variable
                     if (tabla3.Rows.Count == 0)
                     {
                         Response.Write("<script>alert('No hay más solicitudes por ver')</script>");
