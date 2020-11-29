@@ -27,24 +27,24 @@ namespace Backend.Clases
         }
 
         // Método que nos permite enlazar los atributos para poder obtener la clave del usuario que acaba de solicitar la QSF
-        public int ObtenerClave(string nombre)
+        public int ObtenerClave(string correo)
         {
-            return du.ObtenerClaveUsuario(nombre);
+            return du.ObtenerClaveUsuario(correo);
         }
 
-        public DataTable ObtenerSolicitudes(string nombre)
+        public DataTable ObtenerSolicitudes(string correo)
         {
-            return du.ObtenerSolicitudesUsuario(nombre);
+            return du.ObtenerSolicitudesUsuario(correo);
         }
 
-        public DataTable ObtenerSiguiente(int clave, string nombre)
+        public DataTable ObtenerSiguiente(int clave, string correo)
         {
-            return du.ObtenerSolicitudSiguiente(clave, nombre);
+            return du.ObtenerSolicitudSiguiente(clave, correo);
         }
 
-        public DataTable ObtenerAnterior(int clave, string nombre)
+        public DataTable ObtenerAnterior(int clave, string correo)
         {
-            return du.ObtenerSolicitudAnterior(clave, nombre);
+            return du.ObtenerSolicitudAnterior(clave, correo);
         }
     }
 }

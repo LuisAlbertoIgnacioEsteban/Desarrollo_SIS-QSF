@@ -43,8 +43,8 @@
           <form class="mt-5 col-12" runat="server">
             <div class="col-12"> 
                     <div class="input-group col-12">
-                        <p>*Nombre completo:&nbsp;&nbsp;&nbsp;</p>
-                        <asp:TextBox ID="txtnombre" runat="server" class="form-control" placeholder="Nombre completo"></asp:TextBox>
+                        <p>*Correo Electronico:&nbsp;&nbsp;&nbsp;</p>
+                        <asp:TextBox ID="txtcorreo" runat="server" class="form-control" placeholder="Correo Electronico"></asp:TextBox>
                          <div class="col-md-3 col-sm-3 col-xs-3 pad-adjust">
                             <asp:Button ID="Button1" class="btn btn-block" runat="server" style="background-color:lightblue" OnClick="Button1_Click" Text="Ver Progreso" />
                          </div>   

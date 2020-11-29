@@ -34,10 +34,6 @@ namespace FrontEnd
                 {
                     usuario.Telefono = "-";
                 }
-                if (usuario.Correo == "")
-                {
-                    usuario.Correo = "-";
-                }
                 if (usuario.NoControl == "")
                 {
                     usuario.NoControl = "-";
@@ -51,7 +47,7 @@ namespace FrontEnd
                 qsf.Observaciones = "-";
                 if (usuario.Insertar(usuario) == true)
                 {
-                    qsf.UsuarioSolicitante = usuario.ObtenerClave(usuario.Nombre).ToString();//llamada del metodo para obtener la claveusuario
+                    qsf.UsuarioSolicitante = usuario.ObtenerClave(usuario.Correo).ToString();//llamada del metodo para obtener la claveusuario
                     qsf.Insertar(qsf);//llamada del metodo insertar qsf
                     txtnombre.Text = "";
                     txtcorreo.Text = "";
