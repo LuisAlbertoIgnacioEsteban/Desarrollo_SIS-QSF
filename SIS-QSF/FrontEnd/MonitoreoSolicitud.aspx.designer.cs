@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace FrontEnd {
-    
-    
-    public partial class MonitoreoSolicitud {
-        
+namespace FrontEnd
+{
+
+
+    public partial class MonitoreoSolicitud
+    {
+
         /// <summary>
         /// Control txtcorreo.
         /// </summary>
@@ -20,7 +22,7 @@ namespace FrontEnd {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtcorreo;
-        
+
         /// <summary>
         /// Control Button1.
         /// </summary>
@@ -29,16 +31,7 @@ namespace FrontEnd {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
-        
-        /// <summary>
-        /// Control Label1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
+
         /// <summary>
         /// Control lblclaveusuario.
         /// </summary>
@@ -47,7 +40,7 @@ namespace FrontEnd {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblclaveusuario;
-        
+
         /// <summary>
         /// Control lblNombre.
         /// </summary>
@@ -56,7 +49,7 @@ namespace FrontEnd {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNombre;
-        
+
         /// <summary>
         /// Control lblNoc.
         /// </summary>
@@ -65,7 +58,7 @@ namespace FrontEnd {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNoc;
-        
+
         /// <summary>
         /// Control lblTelefono.
         /// </summary>
@@ -74,7 +67,7 @@ namespace FrontEnd {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTelefono;
-        
+
         /// <summary>
         /// Control lblCorreo.
         /// </summary>
@@ -83,7 +76,7 @@ namespace FrontEnd {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCorreo;
-        
+
         /// <summary>
         /// Control lblEsal.
         /// </summary>
@@ -92,16 +85,7 @@ namespace FrontEnd {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEsal;
-        
-        /// <summary>
-        /// Control lbl6.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl6;
-        
+
         /// <summary>
         /// Control lblclaveqsf.
         /// </summary>
@@ -110,7 +94,7 @@ namespace FrontEnd {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblclaveqsf;
-        
+
         /// <summary>
         /// Control lblFecha.
         /// </summary>
@@ -119,7 +103,7 @@ namespace FrontEnd {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFecha;
-        
+
         /// <summary>
         /// Control lblTipoServ.
         /// </summary>
@@ -128,7 +112,7 @@ namespace FrontEnd {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTipoServ;
-        
+
         /// <summary>
         /// Control lbldepartamento.
         /// </summary>
@@ -137,7 +121,7 @@ namespace FrontEnd {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbldepartamento;
-        
+
         /// <summary>
         /// Control lblPrio.
         /// </summary>
@@ -146,7 +130,7 @@ namespace FrontEnd {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPrio;
-        
+
         /// <summary>
         /// Control lblestatus.
         /// </summary>
@@ -155,7 +139,7 @@ namespace FrontEnd {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblestatus;
-        
+
         /// <summary>
         /// Control lblDescrip.
         /// </summary>
@@ -164,7 +148,7 @@ namespace FrontEnd {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDescrip;
-        
+
         /// <summary>
         /// Control lblobservaciones.
         /// </summary>
@@ -173,7 +157,7 @@ namespace FrontEnd {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblobservaciones;
-        
+
         /// <summary>
         /// Control Btnatras.
         /// </summary>
@@ -182,7 +166,7 @@ namespace FrontEnd {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Btnatras;
-        
+
         /// <summary>
         /// Control Btnadelante.
         /// </summary>
