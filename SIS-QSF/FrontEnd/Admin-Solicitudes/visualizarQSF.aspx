@@ -13,7 +13,7 @@
     <title></title>
 </head>
 <body>
-
+    <form id="form3" runat="server">
     <!--NavBar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#"><h1><img style="width:6em" src="../Imagenes/sisqsf.png"/></h1></a>
@@ -23,25 +23,21 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+            
             <li class="nav-item">
-            <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+            <a class="nav-link active" href="visualizarQSF.aspx">Administrar solicitudes</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="visualizarQSF.aspx">Administrar solicitudes</a>
+            <a class="nav-link" href="GenerarReportes.aspx">Reportes</a>
             </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">Reportes</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">Acerca de </a>
-            </li>
+            
         </ul>
         <ul class="navbar-nav form-inline my-lg-0 nav-item">
-            <a class="nav-link text-white" href="#" tabindex="-1" aria-disabled="true">Iniciar sesión</a>
+             <asp:Button ID="Button1" runat="server"  Text="Cerrar Sesion" class="btn btn-outline-danger" OnClick="Button1_Click"/>
         </ul>
         </div>
     </nav>
-    <form id="form1" runat="server">
+    <div id="alert"></div>
 
          <asp:ScriptManager ID="ScriptManager1" runat="server">
              <Services>
@@ -57,8 +53,7 @@
           </div>
           <div class="row">
             <div class="col-sm-12">
-                <div id="alert" >
-                </div>
+                <div id="alert2"></div>
             </div>
           </div>
           <div class="row">
@@ -67,8 +62,8 @@
             </div>
           </div>
         </div>
-       <table id="tableQSF" class="table table-bordered table-striped"></table>
-    </form>
+      
+
     
     <%--  Inicia modal para editar la solicitud --%>
     <div class="modal " id="mdlEditar" tabindex="-1" >
@@ -187,11 +182,11 @@
                 </div>
                 <input type="email" id="txtCorreo" name="txtCorreo" aria-describedby="emailHelp" class="form-control" placeholder="Correo a donde sera enviada la solicitud" />
               </div>
-              <button type="button" id="btnEnviar"class="btn btn-primary">Enviar correo</button>
+              <button type="button" id="btnEnviar"class="btn btn-primary" data-dismiss="modal">Enviar correo</button>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-            <button id="btnEditar" type="button" class="btn btn-success">Guardar</button>
+            <button id="btnEditar"  type="button" class="btn btn-success" >Guardar</button>
           </div>
         </div>
       </div>
@@ -317,6 +312,7 @@
         </div>
       </div>
     </div>
+     </form>   
     
 </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

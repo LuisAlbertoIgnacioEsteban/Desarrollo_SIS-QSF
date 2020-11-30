@@ -9,123 +9,136 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Formulario QSF</title>
     <link rel=icon type="image/jpg" href="Imagenes/itsur.jpg">
-    <link rel="stylesheet" href="css/bootstrap.css"/>
-    <link rel="stylesheet" href="css/estilo.css"/>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/estilo.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 </head>
 <body>
-   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <h1><img src="Imagenes/sisqsf.png"/></h1>
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         <h4 style="color:white;">Sistema de Quejas, Sugerencias y/o Felicitaciones</h4>
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <div class="collapse navbar-collapse" id="navbarMenu">
-            <ul class="navbar-nav mr-auto" style="border:solid; border-color:aqua;">
-                <li class="nav-item">
-                    <a href="LlenadoSolicitud.aspx" class="nav-link"><h6 style="color:white;">Llenar Solicitud</h6></a>
-                </li>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li class="nav-item">
-                    <a href="MonitoreoSolicitud.aspx" class="nav-link"><h6 style="color:white;">Monitorear Solicitud</h6></a>
-                </li>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li class="nav-item">
-                    <a href="Admin-Solicitudes/visualizarQSF.aspx" class="nav-link"><h6 style="color:white;">Administración</h6></a>
+    <div class="fondo"></div>
+    <div class="contenedor">        
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary"">
+        <a class="navbar-nav">
+            <img src="Imagenes/sisqsf.png" width="120" height="50" class="d-inline-block align-top">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="LlenadoSolicitud.aspx">Llenar Solicitud</a>
                 </li>
                 <li class="nav-item">
-                    <a href="Admin-Solicitudes/GenerarReportes.aspx" class="nav-link"><h6 style="color:white;">Generar Reportes</h6></a>
+                    <a class="nav-link" href="MonitoreoSolicitud.aspx">Monitorear Solicitud</a>
                 </li>
+                <!--
+                        <li class="nav-item">
+                            <a class="nav-link" href="Admin-Solicitudes/visualizarQSF.aspx">Administración</a>
+                         
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Admin-Solicitudes/GenerarReportes.aspx">Generar Reportes</a>
+                        </li>
+                        !-->
             </ul>
         </div>
     </nav>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <div class="col-12">
-        <h5>
-            Con el propósito de mejorar la calidad del Servicio Educativo del ITSUR, se pone a su disposición a los alumnos(as)
-            y partes interesadas este formato, se considerarán solamente aquellas Quejas, Sugerencias y/o Felicitaciones que tengan
-            impacto al Servicio Educativo que ofrece el ITSUR y será válida si presenta los siguinetes datos:
-        </h5>
-        <div class="row">
-          <form class="mt-5 col-12" runat="server">
-            <div class="col-12"> 
-                    <div class="input-group col-12">
-                        <p>*&nbsp;Nombre&nbsp;&nbsp;&nbsp;</p>
-                        <asp:TextBox ID="txtnombre" class="form-control" placeholder="Nombre del alumno" runat="server"></asp:TextBox>
-                        &nbsp;&nbsp;&nbsp;
-                        <p>Teléfono&nbsp;&nbsp;&nbsp;</p>
-                        <asp:TextBox ID="txttelefono" class="form-control" placeholder="Teléfono del alumno" runat="server"></asp:TextBox>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <p>*&nbsp;Tipo de Servicio</p>
-                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </div>
-                    <br />
-                    <div class="input-group col-12">
-                        <p>Correo electronico&nbsp;&nbsp;&nbsp;</p>
-                        <asp:TextBox ID="txtcorreo" class="form-control" placeholder="Correo electronico del alumno" runat="server"></asp:TextBox>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <p>
-                            <asp:RadioButton ID="rbqueja" runat="server" Text="Queja" />
-                        </p>
-                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </div>
-                    <br />
-                    <div class="input-group col-12">
-                        <p>*&nbsp;Alumno:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                        <p>No.Control&nbsp;&nbsp;&nbsp;</p>
-                        <asp:TextBox ID="txtnocontrol" class="form-control" placeholder="No.Control del alumno" runat="server"></asp:TextBox>
-                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <p>
-                            <asp:RadioButton ID="rbsugerencia" runat="server" Text="Sugerencia" />
-                        </p>
-                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                         &nbsp;&nbsp;&nbsp;&nbsp;      
-                    </div>
-                    <div class="input-group col-12">
-                        
-                        <p>
-                            <asp:RadioButton ID="rbsi" runat="server" Text="Si" />
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:RadioButton ID="rbno" runat="server" Text="No" />
-                            <br />
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:RadioButton ID="rbfelicitacion"  runat="server" Text="Felicitación" />
-                        </p>
-                    </div>
-                            
-            </div>
-            <div class="input-group col-12">
-                <asp:TextBox ID="txtdescripcion" class="form-control" placeholder="* Descripción de la problematica" runat="server" TextMode="MultiLine" Height="80px" Width="404px"></asp:TextBox>
-            </div>
-            <br>
-            <center>
-                <div class="col-md-3 col-sm-3 col-xs-3 pad-adjust">
-                    <asp:Button ID="btnregistrar" class="btn btn-block" runat="server" style="background-color:lightblue" Text="Generar Registro" OnClick="btnregistrar_Click" />
+    <div class="container">
+        <form runat="server" id="frmLlenadoSolicitud">
+            <div class="row mb-4">
+                <div class="col-md-5">
+                    <p class="text-light font-weight-bold text-center">Nombre</p>
+                    <asp:TextBox ID="txtnombre" name="txtnombre" class="form-control" placeholder="Nombre del alumno" runat="server"></asp:TextBox>
                 </div>
-            </center>
-            </form>
-        </div>
+                <div class="col-md-5">
+                    <p class="text-light font-weight-bold text-center">Telefono</p>
+                    <asp:TextBox ID="txttelefono" name="txttelefono" class="form-control" placeholder="Teléfono del alumno" runat="server"></asp:TextBox>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-5">
+                    <p class="text-light font-weight-bold text-center">Correo Electronico</p>
+                    <asp:TextBox ID="txtcorreo" name="txtcorreo" class="form-control" placeholder="Correo electronico del alumno" runat="server"></asp:TextBox>
+                </div>
+                <div class="col-md-5">
+                    <p class="text-light font-weight-bold text-center">No. Control</p>
+                    <asp:TextBox ID="txtnocontrol" name="txtnocontrol" class="form-control" placeholder="No.Control del alumno" runat="server"></asp:TextBox>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-5">
+                    <p class="text-light font-weight-bold">Tipo de Servicio</p>
+                    <asp:RadioButtonList ID="rblservicio" runat="server" CellSpacing = "10"  RepeatDirection="Horizontal">
+                            <asp:ListItem Text="Queja" Value="1" ></asp:ListItem>
+                            <asp:ListItem Text="Sugerencia" Value="2"></asp:ListItem>
+                            <asp:ListItem Text="Felicitación" Value="3"></asp:ListItem>
+                    </asp:RadioButtonList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*Debes seleccionar una opción" ControlToValidate="rblservicio" ForeColor="Red"></asp:RequiredFieldValidator> 
+                </div>
+                <div class="col-md-5">
+                    <p class="text-light font-weight-bold">Alumno</p>
+                    <asp:RadioButtonList ID="rblalumno" runat="server" RepeatDirection="Horizontal" CellSpacing="10">
+                        <asp:ListItem Text="Si" Value="1"></asp:ListItem>
+                        <asp:ListItem Text="No" Value="2"></asp:ListItem>
+                    </asp:RadioButtonList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*Debes seleccionar una opción" ControlToValidate="rblalumno" ForeColor="Red"></asp:RequiredFieldValidator>
+                </div>
+
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <p class="text-light font-weight-bold">Describa la problematica</p>
+                    <asp:TextBox ID="txtdescripcion" name="txtdescripcion" class="form-control" placeholder="Descripción de la problematica" runat="server" TextMode="MultiLine"></asp:TextBox>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <asp:Button ID="btnregistrar" class="btn btn-primary btn-lg btn-block" runat="server" Text="Generar Registro" OnClick="btnregistrar_Click" />
+                </div>
+            </div>
+
+
+
+            <!-- Footer -->
+<footer class="page-footer font-small unique-color-dark pt-4">
+
+  <!-- Footer Elements -->
+  <div class="container">
+
+    <!-- Call to action -->
+    <ul class="list-unstyled list-inline text-center py-2">
+      <li class="list-inline-item">
+       
+      </li>
+      <li class="list-inline-item">
+        <a id="btnLogin" class="btn btn-outline-white btn-rounded  btn-light">Inicia Sesion!</a>
+      </li>
+    </ul>
+    <!-- Call to action -->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3 text-white">Visita el Sitio
+    <a href="http://www.itsur.edu.mx/home.php">itsur.edu.mx</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+        </form>
     </div>
-    <br />
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="jss/bootstrapValidator.js"></script>
+    <script src="jss/validarCampos.js"></script>
 </body>
+    <script src="MS.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </html>

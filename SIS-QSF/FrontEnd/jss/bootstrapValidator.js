@@ -1077,7 +1077,7 @@ if (typeof jQuery === 'undefined') {
                         isValidField = null;
                         this.disableSubmitButtons(false);
                         $parent.removeClass('is-valid').removeClass('is-invalid');
-                        $field.removeClass('is-valid').addClass('is-invalid');
+                        $field.removeClass('is-valid').removeClass('is-invalid');
                         /*Se ha removido el icono, puesto que BS4 ya agrega uno de manera predeterminada
                         if ($icon) {
                             $icon.removeClass(this.options.feedbackIcons.valid).removeClass(this.options.feedbackIcons.invalid).removeClass(this.options.feedbackIcons.validating).hide();
@@ -1704,7 +1704,7 @@ if (typeof jQuery === 'undefined') {
         // The CSS selector for indicating the element consists the field
         // By default, each field is placed inside the <div class="form-group"></div>
         // You should adjust this option if your form group consists of many fields which not all of them need to be validated
-        group: '.form-group,.input-group',
+        group: '.form-group',
 
         //The error messages container. It can be:
         // - 'tooltip' if you want to use Bootstrap tooltip to show error messages

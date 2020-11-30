@@ -19,7 +19,7 @@
         }
     );
 
-
+    $("#alert2").hide();
 
 
 });
@@ -85,7 +85,6 @@ function llenarTabla(datos) {
         'order': [[0, 'asc'], [1, 'asc']],//Filtrado
         'language': {
         "sProcessing": "Procesando...",
-        "sLengthMenu": "Mostrar MENU registros",
         "sZeroRecords": "No se encontraron resultados",
         "sEmptyTable": "Ningún dato disponible en esta tabla",
         "sInfo": "Mostrando registros del START al END de un total de TOTAL registros",
@@ -133,7 +132,6 @@ function verSolicitud(ClaveQSF, Prioridad, Estatus, Departamento, Descripcion,
 
 
 var clav = "";
-var fecha = "";
 var obs = "";
 //variables para correo
 var tos = "";
@@ -142,7 +140,6 @@ function editarSolicitud(ClaveQSF, Prioridad, Estatus, Departamento, Descripcion
     TipoServicio, Observaciones, Fecha, UsuarioSolicitante) {
 
     clav = ClaveQSF;
-    fecha = Fecha;
     tos = TipoServicio;
     des = Descripcion;
     var index = 0;
@@ -208,10 +205,8 @@ function editarSolicitud(ClaveQSF, Prioridad, Estatus, Departamento, Descripcion
 
 function QSF(Priority, Status, TS, depa) {
     let obj = {};
-    debugger;
     obj.Prioridad = Priority;
     obj.Estatus = Status;
-    obj.Fecha = fecha.substr(0, 10);
     obj.TipoServicio = TS;
     obj.Departamento = depa;
     obj.Observaciones = $('textarea#txtObservaciones').val();
@@ -241,7 +236,7 @@ $("#btnEnviar").click(function () {
         Subject:  tos  ,
         Body:   des 
     }).then(
-        message => alert(message)
+        message => alert("Correo Enviado")
     );
 
 });
@@ -251,7 +246,10 @@ $("#bntborrarServicio").click(function () {
 
     FrontEnd.ws.WSQSF.delete(cadena, function (result) {
         if (result) {
+            $("#alert2").show();
             location.reload();
+            
+
         } else {
             tpl = '<div class="alert alert-danger hide" role="alert">' + "Error de tipo" + error +
                 ' <button type="button" class="close" data-dismiss="alert" aria-label="Close">  <span aria-hidden="true">&times;</span>  </button> </div>';

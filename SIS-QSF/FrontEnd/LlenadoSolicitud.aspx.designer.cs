@@ -7,11 +7,22 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace FrontEnd {
-    
-    
-    public partial class LlenadoSolicitud {
-        
+namespace FrontEnd
+{
+
+
+    public partial class LlenadoSolicitud
+    {
+
+        /// <summary>
+        /// Control frmLlenadoSolicitud.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm frmLlenadoSolicitud;
+
         /// <summary>
         /// Control txtnombre.
         /// </summary>
@@ -20,7 +31,7 @@ namespace FrontEnd {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtnombre;
-        
+
         /// <summary>
         /// Control txttelefono.
         /// </summary>
@@ -29,7 +40,7 @@ namespace FrontEnd {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txttelefono;
-        
+
         /// <summary>
         /// Control txtcorreo.
         /// </summary>
@@ -38,16 +49,7 @@ namespace FrontEnd {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtcorreo;
-        
-        /// <summary>
-        /// Control rbqueja.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbqueja;
-        
+
         /// <summary>
         /// Control txtnocontrol.
         /// </summary>
@@ -56,43 +58,43 @@ namespace FrontEnd {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtnocontrol;
-        
+
         /// <summary>
-        /// Control rbsugerencia.
+        /// Control rblservicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbsugerencia;
-        
+        protected global::System.Web.UI.WebControls.RadioButtonList rblservicio;
+
         /// <summary>
-        /// Control rbsi.
+        /// Control RequiredFieldValidator4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbsi;
-        
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+
         /// <summary>
-        /// Control rbno.
+        /// Control rblalumno.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbno;
-        
+        protected global::System.Web.UI.WebControls.RadioButtonList rblalumno;
+
         /// <summary>
-        /// Control rbfelicitacion.
+        /// Control RequiredFieldValidator3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbfelicitacion;
-        
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+
         /// <summary>
         /// Control txtdescripcion.
         /// </summary>
@@ -101,7 +103,7 @@ namespace FrontEnd {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtdescripcion;
-        
+
         /// <summary>
         /// Control btnregistrar.
         /// </summary>

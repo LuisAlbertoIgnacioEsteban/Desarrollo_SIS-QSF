@@ -13,8 +13,7 @@ namespace FrontEnd
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            
+            ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         }
 
         Usuario usuario = new Usuario();//instancia de la clase Usuario
@@ -24,88 +23,62 @@ namespace FrontEnd
 
         protected void btnregistrar_Click(object sender, EventArgs e)
         {
-            if (txtnombre.Text == "" || txtdescripcion.Text == "" || (!rbsi.Checked && !rbno.Checked)
-                || (!rbqueja.Checked && !rbfelicitacion.Checked && !rbsugerencia.Checked))
+            if (Page.IsValid)
             {
-                Response.Write("<script>alert('Falta llenar los campos obligatorios *')</script>");
-            }//compara si los campos obligatorios estan vacios, si lo estan manda un mensaje, sino realiza el proceso de insertar
-            else
-            {
-                if ((rbsi.Checked && rbno.Checked) || (rbqueja.Checked && rbfelicitacion.Checked && rbsugerencia.Checked)
-                    || (rbqueja.Checked && rbfelicitacion.Checked) || (rbqueja.Checked && rbsugerencia.Checked)
-                    || (rbsugerencia.Checked && rbfelicitacion.Checked))
-                {//verifica que solo se marque una opcion por grupo de radiobutons, si hay mas de 1 manda mensaje
-                    Response.Write("<script>alert('Solo puedes marcar una opcion(circulo) por pregunta')</script>");
-                    if (rbsi.Checked && rbno.Checked)
+                usuario.Nombre = txtnombre.Text;//asignaciones de las cajas de texto a cada atributo de la lista Usuario
+                usuario.Telefono = txttelefono.Text;
+                usuario.Correo = txtcorreo.Text;
+                usuario.NoControl = txtnocontrol.Text;
+                usuario.EsAlumno = rblalumno.SelectedItem.Text;
+                if (usuario.Telefono == "")//asignaciones de un - como valor si se dejan cajas de texto vacias
+                {
+                    usuario.Telefono = "-";
+                }
+                if (usuario.NoControl == "")
+                {
+                    usuario.NoControl = "-";
+                }
+                qsf.Fecha = fecha.ToShortDateString() + fecha.ToShortTimeString();//se establece el formato para la fecha actual
+                qsf.Prioridad = "Baja";//asignaciones de las cajas de texto a cada atributo de la lista QSF
+                qsf.Estatus = "No iniciada";
+                qsf.TipoServicio = rblservicio.SelectedItem.Text;
+                qsf.Departamento = "Calidad";
+                qsf.Descripcion = txtdescripcion.Text;
+                qsf.Observaciones = "-";
+                if(usuario.ControlTotalUsuarios(usuario.Correo)==0)
+                {
+                    if (usuario.Insertar(usuario) == true)
                     {
-                        rbsi.Checked = false;
-                        rbno.Checked = false;
-                    }//si hay mas de un radiobuton de tipo "Es Alumno" los devuelve a su estado inicial
+                        qsf.UsuarioSolicitante = usuario.ObtenerClave(usuario.Correo).ToString();//llamada del metodo para obtener la claveusuario
+                        qsf.Insertar(qsf);//llamada del metodo insertar qsf
+                        txtnombre.Text = "";
+                        txtcorreo.Text = "";
+                        txttelefono.Text = "";
+                        txtnocontrol.Text = "";
+                        txtdescripcion.Text = "";
+                        rblservicio.SelectedIndex = -1;
+                        rblalumno.SelectedIndex = -1;
+                        Response.Write("<script>alert('Registro exitoso!!!')</script>");
+                    }
                     else
                     {
-                        rbqueja.Checked = false;
-                        rbfelicitacion.Checked = false;
-                        rbsugerencia.Checked = false;
-                    }//si hay mas de un radiobuton de tipo "Tipo Servicio" los devuelve a su estado inicial
+                        Response.Write("<script>alert('Ocurrio un error')</script>");
+                    }
                 }
-                else//si no hay mas de 1 radiobuton, prosige con el proceso de insertar
+                else
                 {
-                    if (rbsi.Checked)//asignaciones del radiobuton seleccionado
-                    {
-                        usuario.EsAlumno = rbsi.Text;
-                    }
-                    if (rbno.Checked)
-                    {
-                        usuario.EsAlumno = rbno.Text;
-                    }
-                    if (rbqueja.Checked)
-                    {
-                        qsf.TipoServicio = rbqueja.Text;
-                    }
-                    if (rbfelicitacion.Checked)
-                    {
-                        qsf.TipoServicio = rbfelicitacion.Text;
-                    }
-                    if (rbsugerencia.Checked)
-                    {
-                        qsf.TipoServicio = rbsugerencia.Text;
-                    }
-                    usuario.Nombre = txtnombre.Text;//asignaciones de las cajas de texto a cada atributo de la lista Usuario
-                    usuario.Telefono = txttelefono.Text;
-                    usuario.Correo = txtcorreo.Text;
-                    usuario.NoControl = txtnocontrol.Text;
-                    if (usuario.Telefono == "")//asignaciones de un - como valor si se dejan cajas de texto vacias
-                    {
-                        usuario.Telefono = "-";
-                    }
-                    if (usuario.Correo == "")
-                    {
-                        usuario.Correo = "-";
-                    }
-                    if (usuario.NoControl == "")
-                    {
-                        usuario.NoControl = "-";
-                    }
-                    qsf.Fecha = fecha.ToString("yyyy-MM-dd");//se establece el formato para la fecha actual
-                    qsf.Prioridad = "Baja";//asignaciones de las cajas de texto a cada atributo de la lista QSF
-                    qsf.Estatus = "No iniciada";
-                    qsf.Departamento = "Calidad";
-                    qsf.Descripcion = txtdescripcion.Text;
-                    qsf.Observaciones = "-";//valor inicial de este campo
-                    usuario.Insertar(usuario);//llamada del metodo insertar usuario
-                    qsf.UsuarioSolicitante = usuario.ObtenerClave(usuario.Nombre).ToString();//llamada del metodo para obtener la claveusuario
+                    qsf.UsuarioSolicitante = usuario.ObtenerClave(usuario.Correo).ToString();//llamada del metodo para obtener la claveusuario
                     qsf.Insertar(qsf);//llamada del metodo insertar qsf
                     txtnombre.Text = "";
                     txtcorreo.Text = "";
                     txttelefono.Text = "";
                     txtnocontrol.Text = "";
                     txtdescripcion.Text = "";
-                    rbsi.Checked = false;
-                    rbno.Checked = false;
-                    rbqueja.Checked = false;
-                    rbfelicitacion.Checked = false;
-                    rbsugerencia.Checked = false;//se regresan las cajas de texto,variables y radiobutons a su estado inicial
+                    rblservicio.SelectedIndex = -1;
+                    rblalumno.SelectedIndex = -1;
+                    Response.Write("<script>alert('Registro exitoso!!!')</script>");
                 }
+                
             }
         }
     }
