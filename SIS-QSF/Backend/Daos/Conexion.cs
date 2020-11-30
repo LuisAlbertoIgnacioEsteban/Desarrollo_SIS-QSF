@@ -14,7 +14,7 @@ namespace Backend.Daos
             MySqlConnection conectar = null;//declaramos la variable de conexion
             try
             {
-                conectar = new MySqlConnection("server=localhost; database=sisqsf; user=root; pwd='root'");
+                conectar = new MySqlConnection("server=localhost; database=sisqsf2; user=root; pwd=root");
                 //se especifica el servidor, la BD, el usuario y la contraseña de la base de datos a la que nos vamos a conectar
                 conectar.Open();
                 //se abre la conexion
@@ -31,7 +31,7 @@ namespace Backend.Daos
             MySqlConnection conectar = null;//declaramos la variable de conexion
             try
             {
-                conectar = new MySqlConnection("server=localhost; database=sisqsf; user=root; pwd='root'");
+                conectar = new MySqlConnection("server=localhost; database=sisqsf2; user=root; pwd=root");
                 //se especifica el servidor, la BD, el usuario y la contraseña de la base de datos a la que nos vamos a conectar
                 conectar.Open();
                 //se abre la conexion

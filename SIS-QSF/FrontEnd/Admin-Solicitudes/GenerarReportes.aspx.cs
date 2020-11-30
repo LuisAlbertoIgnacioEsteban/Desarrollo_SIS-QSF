@@ -13,7 +13,13 @@ namespace FrontEnd.Admin_Solicitudes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+                if (Session["id"] == null)
+                {
+                    Response.Redirect("../Login.aspx");
+                }
+            }
         }
 
         protected String TiposdeSolicitud()
@@ -70,5 +76,19 @@ namespace FrontEnd.Admin_Solicitudes
             TiposdeSolicitud();
                        
         }
+
+
+       
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Session.Contents.RemoveAll();
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("../LlenadoSolicitud.aspx");
+        }
     }
+
+
+
 }

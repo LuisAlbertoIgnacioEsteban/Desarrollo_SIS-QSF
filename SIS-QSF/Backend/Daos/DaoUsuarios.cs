@@ -105,6 +105,8 @@ namespace Backend.Daos
                 MySqlCommand comando = new MySqlCommand(strSQL, Conexion.ObtenerConexion());//ASIGNACION DE SCRIP Y CONEXION A LA BASE DE DATOS
                 comando.Parameters.AddWithValue("@correo", correo);//se asignan los parametros al script
                 mda = new MySqlDataAdapter(comando);//se ejecuta el comando
+
+
                 mda.Fill(ds);//se asigna la tabla
                 comando.Dispose();//libera el comando
             }

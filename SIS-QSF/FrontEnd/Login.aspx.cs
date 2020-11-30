@@ -26,7 +26,9 @@ namespace FrontEnd
 
             if (administrador.verificarAdmin(administrador)==true)
             {
+                Session["id"] = 1;
                 Response.Redirect("Admin-Solicitudes/visualizarQSF.aspx");
+                
             }
             else
             {

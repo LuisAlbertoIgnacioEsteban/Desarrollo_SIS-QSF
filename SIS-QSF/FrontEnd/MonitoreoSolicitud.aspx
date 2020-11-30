@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script src="MS.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 </head>
 <body>
     <div class="fondo"></div>
@@ -51,6 +55,10 @@
                     <div class="col-md-5">
                         <p class="text-light font-weight-bold">*Correo Electronico</p>
                         <asp:TextBox ID="txtcorreo" runat="server" class="form-control" placeholder="Correo Electronico"></asp:TextBox>
+
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*Correo Obligatorio" ControlToValidate="txtcorreo" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:Label ID="lblMensaje" runat="server" BackColor="Red" ForeColor="White" ></asp:Label>
+
                     </div>
                     <div class="col-md-4">
                         <p class="mb-5"></p>
@@ -147,6 +155,38 @@
                 </div>
             </form>
         </div>
+
+         <!-- Footer -->
+<footer class="page-footer font-small unique-color-dark pt-4">
+
+  <!-- Footer Elements -->
+  <div class="container">
+
+    <!-- Call to action -->
+    <ul class="list-unstyled list-inline text-center py-2">
+      <li class="list-inline-item">
+       
+      </li>
+      <li class="list-inline-item">
+        <a href="#!" id="btnLogin" class="btn btn-outline-white btn-rounded  btn-light">Inicia Sesion!</a>
+      </li>
+    </ul>
+    <!-- Call to action -->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3 text-white">Visita el Sitio
+    <a href="http://www.itsur.edu.mx/home.php">itsur.edu.mx</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
     </div>
+    <script src="MS.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </body>
 </html>

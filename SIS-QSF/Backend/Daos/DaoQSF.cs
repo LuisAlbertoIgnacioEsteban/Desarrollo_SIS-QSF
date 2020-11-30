@@ -16,7 +16,7 @@ namespace Backend.Daos
             try
             {
                 string strSQL = "insert into qsf(ClaveQSF,Fecha,Prioridad,Estatus,Tipo_Servicio,Departamento,Descripcion,Observaciones,UsuarioSolicitante)" +
-                                "values (null,@Fecha,@Prioridad,@Estatus,@TipoServicio,@Departamento,@Descripcion,@Observaciones,@UsuarioSolicitante)";//consulta sql que va a realizarse
+                                "values (null,now(),@Prioridad,@Estatus,@TipoServicio,@Departamento,@Descripcion,@Observaciones,@UsuarioSolicitante)";//consulta sql que va a realizarse
                 MySqlCommand comando = new MySqlCommand(strSQL, Conexion.ObtenerConexion());//asigna la consulta y la conexion a la variable comando
                 comando.Parameters.AddWithValue("@Fecha", qsf.Fecha);
                 comando.Parameters.AddWithValue("@Prioridad", qsf.Prioridad);
@@ -141,14 +141,13 @@ namespace Backend.Daos
             try
             {
                
-                string sql = "update qsf set Prioridad = @Prioridad, Estatus = @Estatus, Fecha=(STR_TO_DATE(REPLACE(@Fecha,'/','.') ,GET_FORMAT(date,'EUR'))) ,Tipo_Servicio = @Tipo_Servicio,  Departamento = @Departamento, Observaciones =  @Observaciones where ClaveQSF = @ClaveQSF; ";
+                string sql = "update qsf set Prioridad = @Prioridad, Estatus = @Estatus,Tipo_Servicio = @Tipo_Servicio,  Departamento = @Departamento, Observaciones =  @Observaciones where ClaveQSF = @ClaveQSF; ";
                 
                    
 
                 MySqlCommand comando = new MySqlCommand(sql, con);
                 comando.Parameters.AddWithValue("Prioridad",qsf.Prioridad);
                 comando.Parameters.AddWithValue("Estatus",qsf.Estatus);
-                comando.Parameters.AddWithValue("Fecha",qsf.Fecha);
                 comando.Parameters.AddWithValue("Tipo_Servicio", qsf.TipoServicio);
                 comando.Parameters.AddWithValue("Departamento", qsf.Departamento);
                 comando.Parameters.AddWithValue("Observaciones", qsf.Observaciones);
