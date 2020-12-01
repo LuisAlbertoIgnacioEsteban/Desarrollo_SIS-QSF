@@ -8,7 +8,7 @@ NoControl varchar(50) null,
 Nombre varchar(100) not null,
 EsAlumno enum('Si','No') not null,
 Telefono varchar(50) null,
-Correo varchar(100) null
+Correo varchar(100) not null
 );
 
 create table administrador

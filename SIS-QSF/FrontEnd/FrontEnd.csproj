@@ -72,6 +72,9 @@
     <Content Include="Admin-Solicitudes\GenerarReportes.aspx" />
     <Content Include="Admin-Solicitudes\visualizarQSF.aspx" />
     <Content Include="Admin-Solicitudes\visualizarQSF.js" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\estilo.css" />
+    <Content Include="css\style.css" />
     <Content Include="jss\bootstrap.bundle.js" />
     <Content Include="jss\bootstrap.bundle.min.js" />
     <Content Include="jss\bootstrap.js" />
@@ -81,9 +84,12 @@
     <Content Include="jss\datatables.min.js" />
     <Content Include="jss\jquery-3.3.1.slim.min.js" />
     <Content Include="jss\jquery-3.4.1.js" />
+    <Content Include="jss\validarCampos.js" />
     <Content Include="LlenadoSolicitud.aspx" />
+    <Content Include="LLS.js" />
     <Content Include="Login.aspx" />
     <Content Include="MonitoreoSolicitud.aspx" />
+    <Content Include="MS.js" />
     <Content Include="Web.config" />
     <Content Include="ws\WSQSF.asmx" />
   </ItemGroup>
