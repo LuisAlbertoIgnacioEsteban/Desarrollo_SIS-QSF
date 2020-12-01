@@ -12,8 +12,10 @@
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/estilo.css" />
     <link rel="stylesheet" href="css/style.css" />
+
     <link rel="stylesheet" href="css/bootstrapValidator.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 
 </head>
 <body>
@@ -51,15 +53,16 @@
             <div class="row mb-4">
                 <div class="col-md-5">
                     <p class="text-light font-weight-bold text-center">Nombre</p>
+
                     <asp:TextBox ID="txtnombre" name="txtnombre" class="form-control" placeholder="Nombre del alumno" runat="server"></asp:TextBox>
                 </div>
                 <div class="col-md-5">
                     <p class="text-light font-weight-bold text-center">Telefono</p>
                     <asp:TextBox ID="txttelefono" name="txttelefono" class="form-control" placeholder="Teléfono del alumno" runat="server"></asp:TextBox>
-                </div>
-            </div>
-            <div class="row mb-4">
-                <div class="col-md-5">
+
+                  
+
+
                     <p class="text-light font-weight-bold text-center">Correo Electronico</p>
                     <asp:TextBox ID="txtcorreo" name="txtcorreo" class="form-control" placeholder="Correo electronico del alumno" runat="server"></asp:TextBox>
                 </div>
@@ -93,12 +96,14 @@
                     <p class="text-light font-weight-bold">Describa la problematica</p>
                     <asp:TextBox ID="txtdescripcion" name="txtdescripcion" class="form-control" placeholder="Descripción de la problematica" runat="server" TextMode="MultiLine"></asp:TextBox>
                 </div>
+
             </div>
             <div class="row mb-4">
                 <div class="col-md-12">
                     <asp:Button ID="btnregistrar" class="btn btn-primary btn-lg btn-block" runat="server" Text="Generar Registro" OnClick="btnregistrar_Click" />
                 </div>
             </div>
+
 
 
 
@@ -138,6 +143,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="jss/bootstrapValidator.js"></script>
     <script src="jss/validarCampos.js"></script>
+
 </body>
     <script src="MS.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

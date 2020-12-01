@@ -19,6 +19,7 @@ namespace FrontEnd
 
 
 
+
         private Boolean email_bien_escrito(String email)
         {
             String expresion;
@@ -45,6 +46,7 @@ namespace FrontEnd
         protected void Button1_Click(object sender, EventArgs e)
         {
             if (!email_bien_escrito(txtcorreo.Text))
+
             {
                 lblMensaje.Text = "Correo No valido";
             }
@@ -53,6 +55,7 @@ namespace FrontEnd
                 DataTable tabla;
                 Usuario us = new Usuario();
                 tabla = us.ObtenerSolicitudes(txtcorreo.Text);// asignacion de la tabla a la variable
+
                 if (tabla.Rows.Count>0)
                 {
                     lblMensaje.Text = "";
@@ -76,6 +79,7 @@ namespace FrontEnd
                     lblMensaje.Text = "No hay nada con este correo";
 
                 }
+
             }
         }
 

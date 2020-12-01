@@ -14,8 +14,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <script src="MS.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 </head>
 <body>
     <div class="fondo"></div>
@@ -53,8 +55,10 @@
                     <div class="col-md-5">
                         <p class="text-light font-weight-bold">*Correo Electronico</p>
                         <asp:TextBox ID="txtcorreo" runat="server" class="form-control" placeholder="Correo Electronico"></asp:TextBox>
+
                      <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*Correo Obligatorio" ControlToValidate="txtcorreo" ForeColor="Red"></asp:RequiredFieldValidator>
                     <asp:Label ID="lblMensaje" runat="server" BackColor="Red" ForeColor="White" ></asp:Label>
+
                     </div>
                     <div class="col-md-4">
                         <p class="mb-5"></p>
